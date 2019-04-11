@@ -10,7 +10,7 @@ class Login extends Component {
       age: 0,
       image: "n/a",
       enemy: "n/a",
-      input: 'name',
+      input: ['name', 'hometown', 'age', 'image', 'enemy'],
       index: 0,
       questions: ["First, what is your name?",
       "Second, what is your hometown?",
@@ -20,7 +20,8 @@ class Login extends Component {
     }
   }
 
-  submit = (ev) => {
+  submitForm = (ev) => {
+    ev.preventDefault()
     console.log(ev.target.value)
     console.log(ev.target.name)
     this.setState({
@@ -38,13 +39,13 @@ class Login extends Component {
   render(){
     return(
       <div>
-        <label>{this.state.question}</label>
-        <form onSubmit={() => this.submit()}>
-          <input name={this.state.question} type='text' />
+        <label>{this.state.input[this.state.index]}</label>
+        <form onSubmit={(ev) => this.submitForm(ev)}>
+          <input name={this.state.input[this.state.index]} type='text' />
           <input type='submit' />
         </form>
         <div>
-          <p>{this.state.question[this.state.index]}</p>
+          <p>{this.state.questions[this.state.index]}</p>
         </div>
         <div>
           <img src="/images/ash.png" />
