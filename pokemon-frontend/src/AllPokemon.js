@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Pokemon from './Pokemon'
 
 class AllPokemon extends Component {
   constructor(props){
@@ -7,7 +8,8 @@ class AllPokemon extends Component {
 
   displayPokemon = () => {
     return this.props.allPokemon.map( pokemon => {
-      return <li onClick={() => this.handleClick()}> pokemon </li>
+      console.log(pokemon)
+      return <li onClick={() => console.log("go to pokemon show page")}>{pokemon.name}</li>
     })
   }
 
