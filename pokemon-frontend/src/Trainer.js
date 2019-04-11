@@ -24,9 +24,3 @@ class Trainer extends Component {
 }
 
 export default Trainer;
-
-// t.string :name
-// t.string :hometown
-// t.integer :age
-// t.string :image
-// t.string :enemy
