@@ -8,19 +8,26 @@ class App extends Component {
   constructor(){
     super()
 
+    let exampleTrainer = {}
+    exampleTrainer.name = "kevin"
+    exampleTrainer.hometown = "pallet town"
+    exampleTrainer.age = 31
+    exampleTrainer.img = "https://img.rankedboost.com/wp-content/plugins/ice/pokemon/Luxio-Pokemon-Go.png"
+    exampleTrainer.enemy = "eli"
+
     this.state = {
-      allPokemon: [],
-      team: [],
-      trainer: 0,
+      allPokemon: [1,2,3, 4, 5, 6],
+      team: [1,2,3],
+      trainer: exampleTrainer,
     }
   }
 
   getTeam = () => {
-    url = ""
+    let url = ""
     fetch(url)
     .then(data => data.json())
     .then(result => {
-      setState({team: results})
+      this.setState({team: result})
     })
   }
 
@@ -33,8 +40,8 @@ class App extends Component {
   render() {
     return (
       <div >
-        <LandingPage />
-        /*<Pokedex allPokemon={this.state.allPokemon} team={this.state.team} trainer={this.state.trainer}/>*/
+        {/*<LandingPage />*/}
+        <Pokedex allPokemon={this.state.allPokemon} team={this.state.team} trainer={this.state.trainer}/>
       </div>
     );
   }
