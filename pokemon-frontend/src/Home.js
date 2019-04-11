@@ -3,10 +3,6 @@ import Pokedex from './Pokedex'
 import Nav from './Nav'
 
 class Home extends Component {
-  constructor(props){
-    super(props)
-
-  }
 
   render() {
     return (

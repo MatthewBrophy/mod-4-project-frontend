@@ -8,7 +8,6 @@ class AllPokemon extends Component {
 
   displayPokemon = () => {
     return this.props.allPokemon.map( pokemon => {
-      console.log(pokemon)
       return <li onClick={() => console.log("go to pokemon show page")}>{pokemon.name}</li>
     })
   }

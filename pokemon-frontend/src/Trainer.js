@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
 class Trainer extends Component {
-  constructor(props){
-    super(props)
-  }
 
   handleClick = () => {
     console.log("edit trainer")

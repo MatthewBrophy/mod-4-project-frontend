@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import LandingPage from "./LandingPage";
+import Login from "./Login"
 
 const AllPokemonURL = "http://localhost:3000/api/v1/pokemons";
 
@@ -9,18 +10,10 @@ class App extends Component {
   constructor() {
     super();
 
-    let exampleTrainer = {};
-    exampleTrainer.name = "kevin";
-    exampleTrainer.hometown = "pallet town";
-    exampleTrainer.age = 31;
-    exampleTrainer.img =
-      "https://img.rankedboost.com/wp-content/plugins/ice/pokemon/Luxio-Pokemon-Go.png";
-    exampleTrainer.enemy = "eli";
-
     this.state = {
       allPokemon: [],
       team: [1, 2, 3],
-      trainer: exampleTrainer
+      trainer: {}
     };
   }
 
@@ -58,6 +51,7 @@ class App extends Component {
           team={this.state.team}
           trainer={this.state.trainer}
         />
+      <Login />
       </div>
     );
   }

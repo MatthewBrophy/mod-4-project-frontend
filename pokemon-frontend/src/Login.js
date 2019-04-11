@@ -9,7 +9,14 @@ class Login extends Component {
       hometown: "n/a",
       age: 0,
       image: "n/a",
-      enemy: "n/a"
+      enemy: "n/a",
+      input: 'name',
+      index: 0,
+      questions: ["First, what is your name?",
+      "Second, what is your hometown?",
+      "Third, what is your age?",
+      "Fourth, give me a url for your image?",
+      "Fifth, what is your enemy?"]
     }
   }
 
@@ -17,42 +24,27 @@ class Login extends Component {
     console.log(ev.target.value)
     console.log(ev.target.name)
     this.setState({
-      [ev.target.name] = ev.target.value
+      [ev.target.name]: ev.target.value
     })
+    this.setState((prevState) => ({
+      index: prevState.index + 1
+    }))
+  }
+
+  displayContent = () => {
+
   }
 
   render(){
     return(
       <div>
+        <label>{this.state.question}</label>
+        <form onSubmit={() => this.submit()}>
+          <input name={this.state.question} type='text' />
+          <input type='submit' />
+        </form>
         <div>
-          <label>Name</label>
-          <form onSubmit={() => this.submit()}>
-            <input name="name" type='text' />
-            <input type='submit' />
-          </form>
-          <label>Hometown</label>
-          <form onSubmit={() => this.submit()}>
-            <input name="hometown" type='text' />
-            <input type='submit' />
-          </form>
-          <label>Age</label>
-          <form onSubmit={() => this.submit()}>
-            <input name="age" type='text' />
-            <input type='submit' />
-          </form>
-          <label>image</label>
-          <form onSubmit={() => this.submit()}>
-            <input name="image" type='text' />
-            <input type='submit' />
-          </form>
-          <label>Enemy</label>
-          <form onSubmit={() => this.submit()}>
-            <input name="enemy" type='text' />
-            <input type='submit' />
-          </form>
-        </div>
-        <div>
-          <p>text goes here</p>
+          <p>{this.state.question[this.state.index]}</p>
         </div>
         <div>
           <img src="/images/ash.png" />
