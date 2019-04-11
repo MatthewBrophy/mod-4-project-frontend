@@ -18,10 +18,15 @@ class LandingPage extends Component {
   render() {
     return (
       <div>
+        {console.log(this.props)}
         <img src={MainImage} alt="" />
         <br />
         {this.state.redirect ? (
-          <Home />
+          <Home
+            allPokemon={this.props.allPokemon}
+            team={this.props.team}
+            trainer={this.props.trainer}
+          />
         ) : (
           <button
             className="enter-button"

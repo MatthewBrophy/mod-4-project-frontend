@@ -53,7 +53,11 @@ class App extends Component {
     return (
       <div>
         {console.log(this.state.allPokemon)}
-        <LandingPage />
+        <LandingPage
+          allPokemon={this.state.allPokemon}
+          team={this.state.team}
+          trainer={this.state.trainer}
+        />
       </div>
     );
   }
