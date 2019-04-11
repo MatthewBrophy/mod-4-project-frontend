@@ -1,25 +1,40 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import Pokedex from './Pokedex'
+import LandingPage from './LandingPage'
 
 class App extends Component {
+  constructor(){
+    super()
+
+    this.state = {
+      allPokemon: [],
+      team: [],
+      trainer: 0,
+    }
+  }
+
+  getTeam = () => {
+    url = ""
+    fetch(url)
+    .then(data => data.json())
+    .then(result => {
+      setState({team: results})
+    })
+  }
+
+  addToTeam = (pokemon) => {
+    this.setState((prevState) => ({
+      team: [pokemon, ...prevState.team]
+    }))
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div >
+        <LandingPage />
+        /*<Pokedex allPokemon={this.state.allPokemon} team={this.state.team} trainer={this.state.trainer}/>*/
       </div>
     );
   }
