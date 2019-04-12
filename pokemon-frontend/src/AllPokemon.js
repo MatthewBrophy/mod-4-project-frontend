@@ -4,26 +4,27 @@ import Pokemon from "./Pokemon";
 class AllPokemon extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      pokemon: this.props.allPokemon,
+      pokemonIndex: 0
+    };
   }
 
   displayPokemon = () => {
-    return this.props.allPokemon.map(pokemon => {
-      console.log(pokemon);
-      return (
-        <div className="all-pokemon-container">
-          <div
-            className="individual-pokemon"
-            onClick={() => console.log("go to pokemon show page")}
-          >
-            <h4>{pokemon.name}</h4>
-            <img src={pokemon.front_img} alt="" />
-            <button onClick={console.log("selectedPokemon")}>
-              Display Details
-            </button>
-          </div>
+    let slicedPokemon = this.state.pokemon.slice(
+      this.state.pokemonIndex,
+      this.state.pokemonIndex + 3
+    );
+
+    return (
+      <div className="container" id="clear-margin-padding">
+        <div className="card-deck" id="all-pokemon-container">
+          {slicedPokemon.map(pokemon => (
+            <Pokemon key={pokemon.id} pokemon={pokemon} />
+          ))}
         </div>
-      );
-    });
+      </div>
+    );
   };
 
   handleClick = () => {
@@ -32,9 +33,11 @@ class AllPokemon extends Component {
 
   render() {
     return (
-      <div>
-        <h1> All Pokemon! </h1>
-        <ul>{this.displayPokemon()}</ul>
+      <div className="centered">
+        <div id="clear-margin-padding">
+          <h1> All Pokemon! </h1>
+          {this.displayPokemon()}
+        </div>
       </div>
     );
   }
