@@ -23,15 +23,33 @@ class Login extends Component {
     };
   }
 
+  createTrainer = () => {
+    let url = "http://localhost:3000/api/v1/trainers"
+    fetch(url, {
+      method: "POST",
+      headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: this.state.name,
+            hometown: this.state.hometown,
+            age: this.state.age,
+            enemy: this.state.enemy,
+            image: this.state.image
+        })
+      })
+      .then((res) => res.json())
+      .then((json) => {
+          console.log(json)
+      });
+  }
+
   submitForm = ev => {
     ev.preventDefault();
 
-    // if () { login to already create user
-    //  redirect to home
-    // }
-    // else {
-    // continue
-    // }
+    if (this.state.input[this.state.index] === 'enemy') {
+      this.createTrainer()
+    }
     this.setState({
       [ev.target.name]: ev.target.value
     });
