@@ -9,8 +9,9 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
-import Login from "./Login";
+import SignUp from "./SignUp";
 import App from "./App";
+import Login from "./Login";
 
 class LandingPage extends Component {
   constructor(props) {
@@ -30,7 +31,9 @@ class LandingPage extends Component {
         <img src={MainImage} alt="" />
         <br />
 
-        <Link to="/login">Login!</Link>
+        <Link to="/sign-up">Sign Up!</Link>
+        <Route exact path="/sign-up" component={() => <SignUp />} />
+        <Link to="/login">Log In!</Link>
         <Route exact path="/login" component={() => <Login />} />
       </div>
     );

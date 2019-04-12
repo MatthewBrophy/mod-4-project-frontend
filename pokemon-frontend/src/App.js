@@ -1,15 +1,9 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import LandingPage from "./LandingPage";
-import Login from "./Login";
+import SignUp from "./SignUp";
 import Battle from "./Battle";
-import {
-  BrowserRouter as Router,
-  Route,
-  NavLink,
-  Switch,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Home";
 
 const AllPokemonURL = "http://localhost:3000/api/v1/pokemons";
@@ -57,7 +51,7 @@ class App extends Component {
           <div>
             <Switch>
               <Route exact path="/" component={() => <LandingPage />} />
-              <Route path="/login" component={Login} />
+              <Route path="/sign-up" component={SignUp} />
               <Route path="/home" component={Home} />
             </Switch>
           </div>
