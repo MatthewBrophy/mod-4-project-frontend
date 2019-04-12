@@ -15,7 +15,7 @@ class Login extends Component {
   }
 
   findTrainer = () => {
-    let url = "http://localhost:3000/api/v1/trainers";
+    let url = `http://localhost:3000/api/v1/trainers/name/${this.state.name}`;
     fetch(url)
       .then(res => res.json())
       .then(json => {
@@ -26,8 +26,8 @@ class Login extends Component {
   submitForm = ev => {
     ev.preventDefault();
 
-    if (this.state.input[this.state.index] === "enemy") {
-      this.createTrainer();
+    if (this.state.input[this.state.index] === "password") {
+      this.findTrainer();
     }
     this.setState({
       [ev.target.name]: ev.target.value

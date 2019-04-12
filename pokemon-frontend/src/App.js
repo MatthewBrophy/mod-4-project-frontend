@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import LandingPage from "./LandingPage";
 import SignUp from "./SignUp";
+import Login from "./Login";
 import Battle from "./Battle";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Home";
@@ -51,6 +52,7 @@ class App extends Component {
           <div>
             <Switch>
               <Route exact path="/" component={() => <LandingPage />} />
+              <Route path="/login" component={Login} />
               <Route path="/sign-up" component={SignUp} />
               <Route path="/home" component={Home} />
             </Switch>

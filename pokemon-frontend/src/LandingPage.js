@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import MainImage from "./images/maxresdefault.jpg";
 import Home from "./Home";
+import SignUp from "./SignUp";
+import App from "./App";
+import Login from "./Login";
 import {
   BrowserRouter as Router,
   Route,
@@ -9,9 +12,7 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
-import SignUp from "./SignUp";
-import App from "./App";
-import Login from "./Login";
+
 
 class LandingPage extends Component {
   constructor(props) {
