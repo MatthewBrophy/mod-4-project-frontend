@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import MainImage from "./images/maxresdefault.jpg";
 import Home from "./Home";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink,
+  Link
+} from "react-router-dom";
+import Login from "./Login";
 
 class LandingPage extends Component {
   constructor(props) {
@@ -18,25 +24,14 @@ class LandingPage extends Component {
   render() {
     return (
       <div>
-        {this.state.redirect ? (
-          <Home
-            allPokemon={this.props.allPokemon}
-            team={this.props.team}
-            trainer={this.props.trainer}
-          />
-        ) : (
+        <img src={MainImage} alt="" />
+        <br />
+        <Router>
           <div>
-            <img src={MainImage} alt="" />
-            <br />
-            <button
-              className="enter-button"
-              onClick={this.handleOnClick}
-              type="button"
-            >
-              Lets Catch Some Pokemon
-            </button>
+            <NavLink to="/login">Login</NavLink>
+            <Route path="/login" render={() => <Login />} />
           </div>
-        )}
+        </Router>
       </div>
     );
   }

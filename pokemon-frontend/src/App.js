@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import LandingPage from "./LandingPage";
-import Login from "./Login"
-import Battle from "./Battle"
+import Login from "./Login";
+import Battle from "./Battle";
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink,
+  Switch
+} from "react-router-dom";
 
 const AllPokemonURL = "http://localhost:3000/api/v1/pokemons";
 
@@ -45,14 +51,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        {console.log(this.state.allPokemon)}
-        <LandingPage
-          allPokemon={this.state.allPokemon}
-          team={this.state.team}
-          trainer={this.state.trainer}
-        />
-      <Login />
-      <Battle allPokemon={this.state.allPokemon}/>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/login" render={() => <Login />} />
+          </Switch>
+        </Router>
       </div>
     );
   }
