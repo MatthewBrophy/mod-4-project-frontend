@@ -34,6 +34,7 @@ class App extends Component {
   };
 
   setTrainer = (trainer) => {
+    console.log(trainer)
     this.setState({
       trainer: trainer
     })
@@ -63,7 +64,7 @@ class App extends Component {
               <Route exact path="/" component={() => <LandingPage />} />
               <Route path="/login" component={() => <Login setTrainer={this.setTrainer} />} />
               <Route path="/sign-up" component={() => <SignUp setTrainer={this.setTrainer}/>} />
-              <Route path="/home" component={() => <Home team={this.state.team} />} />
+              <Route path="/home" component={() => <Home team={this.state.team} trainer={this.state.trainer}/>} />
               <Route path="/team" component={() => <Team />} />
               <Route path="/trainer" component={() => <Trainer trainer={this.state.trainer}/>} />
               <Route path="/pokedex" component={() => <Pokedex />} />
