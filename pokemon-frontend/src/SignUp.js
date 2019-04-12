@@ -1,5 +1,14 @@
 import React, { Component } from "react";
 import Ash from "./images/ash.png";
+import Home from "./Home"
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink,
+  Link,
+  Switch,
+  Redirect
+} from "react-router-dom";
 
 class SignUp extends Component {
   constructor() {
@@ -10,16 +19,7 @@ class SignUp extends Component {
       hometown: "",
       age: 0,
       image: "",
-      enemy: "",
-      input: ["name", "hometown", "age", "image", "enemy"],
-      index: 0,
-      questions: [
-        "First, what is your name?",
-        "Second, what is your hometown?",
-        "Third, what is your age?",
-        "Fourth, give me a url for your image?",
-        "Fifth, what is your enemy?"
-      ]
+      enemy: ""
     };
   }
 
@@ -40,24 +40,15 @@ class SignUp extends Component {
     })
       .then(res => res.json())
       .then(json => {
-        console.log(json);
+        this.props.setTrainer(json)
       });
   };
 
   submitForm = ev => {
     ev.preventDefault();
-
-    if (this.state.input[this.state.index] === "enemy") {
-      this.createTrainer();
-    }
-    this.setState({
-      [ev.target.name]: ev.target.value
-    });
-    this.setState(prevState => ({
-      index: prevState.index + 1
-    }));
-
     console.log(this.state);
+    this.createTrainer();
+
   };
 
   handleChange = ev => {
@@ -69,18 +60,47 @@ class SignUp extends Component {
   render() {
     return (
       <div>
-        <label>{this.state.input[this.state.index]}</label>
+        <label>Tell me about yourself!</label>
         <form onSubmit={ev => this.submitForm(ev)}>
+          <label>Name:</label>
           <input
             onChange={ev => this.handleChange(ev)}
-            name={this.state.input[this.state.index]}
+            name="name"
             type="text"
           />
-          <input type="submit" />
+        <br></br>
+        <label>Age:</label>
+          <input
+            onChange={ev => this.handleChange(ev)}
+            name="age"
+            type="text"
+          />
+          <br></br>
+          <label>Hometown:</label>
+          <input
+            onChange={ev => this.handleChange(ev)}
+            name="hometown"
+            type="text"
+          />
+        <br></br>
+        <label>Enemy:</label>
+          <input
+            onChange={ev => this.handleChange(ev)}
+            name="enemy"
+            type="text"
+          />
+        <br></br>
+        <label>Image:</label>
+          <input
+            onChange={ev => this.handleChange(ev)}
+            name="image"
+            type="text"
+          />
+        <br></br>
+        <Link to="/home"><input type="submit" /></Link>
+        <Route exact path="/home" component={() => <Home />} />
         </form>
-        <div>
-          <p>{this.state.questions[this.state.index]}</p>
-        </div>
+
         <div>
           <img src={Ash} />
         </div>
