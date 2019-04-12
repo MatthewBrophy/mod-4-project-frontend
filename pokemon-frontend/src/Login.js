@@ -5,11 +5,11 @@ class Login extends Component {
     super()
 
     this.state = {
-      name: "n/a",
-      hometown: "n/a",
+      name: "",
+      hometown: "",
       age: 0,
-      image: "n/a",
-      enemy: "n/a",
+      image: "",
+      enemy: "",
       input: ['name', 'hometown', 'age', 'image', 'enemy'],
       index: 0,
       questions: ["First, what is your name?",
@@ -22,18 +22,27 @@ class Login extends Component {
 
   submitForm = (ev) => {
     ev.preventDefault()
-    console.log(ev.target.value)
-    console.log(ev.target.name)
+
+    // if () { login to already create user
+    //  redirect to home
+    // }
+    // else {
+    // continue
+    // }
     this.setState({
       [ev.target.name]: ev.target.value
     })
     this.setState((prevState) => ({
       index: prevState.index + 1
     }))
+
+    console.log(this.state)
   }
 
-  displayContent = () => {
-
+  handleChange = (ev) => {
+    this.setState({
+     [ev.target.name]: ev.target.value
+   });
   }
 
   render(){
@@ -41,7 +50,7 @@ class Login extends Component {
       <div>
         <label>{this.state.input[this.state.index]}</label>
         <form onSubmit={(ev) => this.submitForm(ev)}>
-          <input name={this.state.input[this.state.index]} type='text' />
+          <input onChange={(ev) => this.handleChange(ev)} name={this.state.input[this.state.index]} type='text' />
           <input type='submit' />
         </form>
         <div>
