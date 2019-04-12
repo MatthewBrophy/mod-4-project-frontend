@@ -6,7 +6,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Pokedex />
+        <Pokedex team={this.props.team}/>
         <Nav />
       </div>
     );

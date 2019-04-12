@@ -4,6 +4,8 @@ import LandingPage from "./LandingPage";
 import SignUp from "./SignUp";
 import Login from "./Login";
 import Battle from "./Battle";
+import Team from "./Team";
+import Pokedex from "./Pokedex"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Home";
 
@@ -30,6 +32,12 @@ class App extends Component {
       .then(pokemon => this.setState({ allPokemon: pokemon }));
   };
 
+  setTrainer = (trainer) => {
+    this.setState({
+      trainer: trainer
+    })
+  }
+
   getTeam = () => {
     let url = "";
     fetch(url)
@@ -52,9 +60,12 @@ class App extends Component {
           <div>
             <Switch>
               <Route exact path="/" component={() => <LandingPage />} />
-              <Route path="/login" component={Login} />
-              <Route path="/sign-up" component={SignUp} />
-              <Route path="/home" component={Home} />
+              <Route path="/login" component={() => <Login setTrainer={this.setTrainer} />} />
+              <Route path="/sign-up" component={() => <SignUp />} />
+              <Route path="/home" component={() => <Home team={this.state.team}/>} />
+              <Route path="/team" component={() => <Team />} />
+              <Route path="/pokedex" component={() => <Pokedex />} />
+
             </Switch>
           </div>
         </Router>

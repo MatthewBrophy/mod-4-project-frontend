@@ -20,6 +20,8 @@ class LandingPage extends Component {
     this.state = {
       redirect: false
     };
+
+    console.log(this.props)
   }
 
   handleOnClick = () => {

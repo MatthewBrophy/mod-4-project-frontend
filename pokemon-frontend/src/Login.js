@@ -1,17 +1,28 @@
 import React, { Component } from "react";
 import Ash from "./images/ash.png";
+import Home from "./Home";
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink,
+  Link,
+  Switch,
+  Redirect
+} from "react-router-dom";
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       name: "",
       password: "",
-      input: ["name", "password"],
+      input: ["name"],
       index: 0,
-      questions: ["First, what is your name?", "Second, what is your password?"]
+      questions: ["First, what is your name?"]
     };
+
+    console.log(this.props)
   }
 
   findTrainer = () => {
@@ -19,7 +30,7 @@ class Login extends Component {
     fetch(url)
       .then(res => res.json())
       .then(json => {
-        console.log(json);
+        this.props.setTrainer(json)
       });
   };
 
@@ -55,7 +66,8 @@ class Login extends Component {
             name={this.state.input[this.state.index]}
             type="text"
           />
-          <input type="submit" />
+        <Link to="/home"><input type="submit" /></Link>
+        <Route exact path="/home" component={() => <Home />} />
         </form>
         <div>
           <p>{this.state.questions[this.state.index]}</p>
