@@ -5,9 +5,12 @@ import {
   BrowserRouter as Router,
   Route,
   NavLink,
-  Link
+  Link,
+  Switch,
+  Redirect
 } from "react-router-dom";
 import Login from "./Login";
+import App from "./App";
 
 class LandingPage extends Component {
   constructor(props) {
@@ -26,12 +29,9 @@ class LandingPage extends Component {
       <div>
         <img src={MainImage} alt="" />
         <br />
-        <Router>
-          <div>
-            <NavLink to="/login">Login</NavLink>
-            <Route path="/login" render={() => <Login />} />
-          </div>
-        </Router>
+
+        <Link to="/login">Login!</Link>
+        <Route exact path="/login" component={() => <Login />} />
       </div>
     );
   }

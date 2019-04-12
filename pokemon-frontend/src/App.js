@@ -7,8 +7,10 @@ import {
   BrowserRouter as Router,
   Route,
   NavLink,
-  Switch
+  Switch,
+  Link
 } from "react-router-dom";
+import Home from "./Home";
 
 const AllPokemonURL = "http://localhost:3000/api/v1/pokemons";
 
@@ -50,12 +52,15 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="App">
         <Router>
-          <Switch>
-            <Route exact path="/" component={LandingPage} />
-            <Route exact path="/login" render={() => <Login />} />
-          </Switch>
+          <div>
+            <Switch>
+              <Route exact path="/" component={() => <LandingPage />} />
+              <Route path="/login" component={Login} />
+              <Route path="/home" component={Home} />
+            </Switch>
+          </div>
         </Router>
       </div>
     );
