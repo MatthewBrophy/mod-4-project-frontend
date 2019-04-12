@@ -1,25 +1,23 @@
 import React, { Component } from "react";
 import Pokemon from "./Pokemon";
+import Pokedex from "./images/trippy-sun-pokedex-avec-pika.jpg";
 
 class AllPokemon extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokemon: this.props.allPokemon,
-      pokemonIndex: 0
+      pokemon: this.props.allPokemon
     };
   }
 
   displayPokemon = () => {
-    let slicedPokemon = this.state.pokemon.slice(
-      this.state.pokemonIndex,
-      this.state.pokemonIndex + 3
-    );
-
     return (
-      <div className="container" id="clear-margin-padding">
-        <div className="card-deck" id="all-pokemon-container">
-          {slicedPokemon.map(pokemon => (
+      <div>
+        <div className="container main-pokedex-display">
+          <img src={Pokedex} alt="" />
+        </div>
+        <div>
+          {this.state.pokemon.map(pokemon => (
             <Pokemon key={pokemon.id} pokemon={pokemon} />
           ))}
         </div>

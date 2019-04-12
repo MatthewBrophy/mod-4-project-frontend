@@ -22,3 +22,8 @@ code {
 .centered {
   text-align: center;
 }
+
+.main-pokedex-display {
+  width: 100%;
+  height: 100%;
+}

@@ -3,23 +3,15 @@ import React, { Component } from "react";
 class Pokemon extends Component {
   render() {
     return (
-      <div className="card">
-        <img
-          src={this.props.pokemon.front_img}
-          className="card-img-top"
-          id="pokedex-img"
-          alt={this.props.pokemon.name}
-        />
-        <div className="card-body">
-          <h5 className="card-title">{this.props.pokemon.name}</h5>
-          <p className="card-text">
+      <div>
+        <img src={this.props.pokemon.front_img} alt={this.props.pokemon.name} />
+        <div>
+          <h5>{this.props.pokemon.name}</h5>
+          <p>
             HP: {this.props.pokemon.hp}
             <br />
             Weight: {this.props.pokemon.weight}
           </p>
-        </div>
-        <div className="card-footer">
-          <small className="text-muted">Last updated 3 mins ago</small>
         </div>
       </div>
     );
