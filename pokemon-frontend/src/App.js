@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import LandingPage from "./LandingPage";
 import Login from "./Login"
+import Battle from "./Battle"
 
 const AllPokemonURL = "http://localhost:3000/api/v1/pokemons";
 
@@ -51,6 +52,7 @@ class App extends Component {
           trainer={this.state.trainer}
         />
       <Login />
+      <Battle allPokemon={this.state.allPokemon}/>
       </div>
     );
   }
