@@ -1,25 +1,20 @@
 import React, { Component } from "react";
 import Ash from "../images/ash.png";
-
-import {
-  BrowserRouter as Router,
-  Route,
-  NavLink,
-  Link,
-  Switch,
-  Redirect
-} from "react-router-dom";
+import Home from "../Containers/Home";
+import { Redirect } from "react-router-dom";
 
 class SignUp extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       name: "",
       hometown: "",
       age: 0,
       image: "",
-      enemy: ""
+      enemy: "",
+      trainer: {},
+      redirect: false
     };
   }
 
@@ -37,12 +32,18 @@ class SignUp extends Component {
         enemy: this.state.enemy,
         image: this.state.image
       })
-    });
+    })
+      .then(res => res.json())
+      .then(
+        newTrainer => (
+          this.setState({ trainer: newTrainer, redirect: true }),
+          this.props.setTrainer(newTrainer)
+        )
+      );
   };
 
   submitForm = ev => {
     ev.preventDefault();
-    console.log(this.state);
     this.createTrainer();
   };
 
@@ -53,7 +54,9 @@ class SignUp extends Component {
   };
 
   render() {
-    return (
+    return this.state.redirect === true ? (
+      <Redirect to="/Home" />
+    ) : (
       <div>
         <label>Tell me about yourself!</label>
         <form onSubmit={ev => this.submitForm(ev)}>
@@ -92,6 +95,7 @@ class SignUp extends Component {
             type="text"
           />
           <br />
+
           <input type="submit" />
         </form>
 

@@ -8,8 +8,15 @@ import Home from "./Containers/Home";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      trainer: {}
+    };
   }
+
+  setTrainer = newTrainer => {
+    this.setState({ trainer: newTrainer });
+  };
+
   render() {
     return (
       <div className="App container">
@@ -17,9 +24,15 @@ class App extends Component {
           <div>
             <Switch>
               <Route exact path="/" component={() => <LandingPage />} />
-              <Route path="/sign-up" component={() => <SignUp />} />
+              <Route
+                path="/sign-up"
+                component={() => <SignUp setTrainer={this.setTrainer} />}
+              />
               <Route path="/login" component={() => <Login />} />
-              <Route path="/home" component={() => <Home />} />
+              <Route
+                path="/home"
+                component={() => <Home trainer={this.state.trainer} />}
+              />
             </Switch>
           </div>
         </Router>
