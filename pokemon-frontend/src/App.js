@@ -2,13 +2,10 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import LandingPage from "./LandingPage";
 import SignUp from "./SignUp";
-import Login from "./Login";
 import Battle from "./Battle";
-import Team from "./Team";
-import Trainer from "./Trainer";
-import Pokedex from "./Pokedex"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Home";
+import Login from "./Login";
 
 const AllPokemonURL = "http://localhost:3000/api/v1/pokemons";
 
@@ -33,13 +30,6 @@ class App extends Component {
       .then(pokemon => this.setState({ allPokemon: pokemon }));
   };
 
-  setTrainer = (trainer) => {
-    console.log(trainer)
-    this.setState({
-      trainer: trainer
-    })
-  }
-
   getTeam = () => {
     let url = "";
     fetch(url)
@@ -62,13 +52,11 @@ class App extends Component {
           <div>
             <Switch>
               <Route exact path="/" component={() => <LandingPage />} />
-              <Route path="/login" component={() => <Login setTrainer={this.setTrainer} />} />
-              <Route path="/sign-up" component={() => <SignUp setTrainer={this.setTrainer}/>} />
-              <Route path="/home" component={() => <Home team={this.state.team} trainer={this.state.trainer}/>} />
-              <Route path="/team" component={() => <Team />} />
-              <Route path="/trainer" component={() => <Trainer trainer={this.state.trainer}/>} />
-              <Route path="/pokedex" component={() => <Pokedex />} />
-
+              <Route path="/sign-up" component={() => <SignUp />} />
+              <Route
+                path="/home"
+                component={() => <Home team={this.state.team} />}
+              />
             </Switch>
           </div>
         </Router>
