@@ -6,6 +6,7 @@ import Battle from "./Battle";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import Login from "./Login";
+import AllPokemon from "./AllPokemon";
 
 const AllPokemonURL = "http://localhost:3000/api/v1/pokemons";
 
@@ -56,6 +57,12 @@ class App extends Component {
               <Route
                 path="/home"
                 component={() => <Home team={this.state.team} />}
+              />
+              <Route
+                path="/all-pokemon"
+                component={() => (
+                  <AllPokemon allPokemon={this.state.allPokemon} />
+                )}
               />
             </Switch>
           </div>

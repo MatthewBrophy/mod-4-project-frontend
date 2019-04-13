@@ -13,7 +13,7 @@ class AllPokemon extends Component {
   displayPokemon = () => {
     return (
       <div>
-        <div className="container main-pokedex-display">
+        <div>
           <img src={Pokedex} alt="" />
         </div>
         <div>
