@@ -1,69 +1,25 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import LandingPage from "./LandingPage";
-import SignUp from "./SignUp";
-import Battle from "./Battle";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./Home";
-import Login from "./Login";
-import AllPokemon from "./AllPokemon";
-
-const AllPokemonURL = "http://localhost:3000/api/v1/pokemons";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import LandingPage from "./Components/LandingPage";
+import SignUp from "./Components/SignUp";
+import Login from "./Components/Login";
+import Home from "./Containers/Home";
 
 class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      allPokemon: [],
-      team: [1, 2, 3],
-      trainer: {}
-    };
+  constructor(props) {
+    super(props);
+    this.state = {};
   }
-
-  componentDidMount() {
-    this.getAllPokemon();
-  }
-
-  getAllPokemon = () => {
-    fetch(AllPokemonURL)
-      .then(response => response.json())
-      .then(pokemon => this.setState({ allPokemon: pokemon }));
-  };
-
-  getTeam = () => {
-    let url = "";
-    fetch(url)
-      .then(data => data.json())
-      .then(result => {
-        this.setState({ team: result });
-      });
-  };
-
-  addToTeam = pokemon => {
-    this.setState(prevState => ({
-      team: [pokemon, ...prevState.team]
-    }));
-  };
-
   render() {
     return (
-      <div className="App">
+      <div className="App container">
         <Router>
           <div>
             <Switch>
               <Route exact path="/" component={() => <LandingPage />} />
               <Route path="/sign-up" component={() => <SignUp />} />
-              <Route
-                path="/home"
-                component={() => <Home team={this.state.team} />}
-              />
-              <Route
-                path="/all-pokemon"
-                component={() => (
-                  <AllPokemon allPokemon={this.state.allPokemon} />
-                )}
-              />
+              <Route path="/login" component={() => <Login />} />
+              <Route path="/home" component={() => <Home />} />
             </Switch>
           </div>
         </Router>

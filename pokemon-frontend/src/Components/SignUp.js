@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Ash from "./images/ash.png";
-import Home from "./Home"
+import Ash from "../images/ash.png";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -37,18 +37,13 @@ class SignUp extends Component {
         enemy: this.state.enemy,
         image: this.state.image
       })
-    })
-      .then(res => res.json())
-      .then(json => {
-        this.props.setTrainer(json)
-      });
+    });
   };
 
   submitForm = ev => {
     ev.preventDefault();
     console.log(this.state);
     this.createTrainer();
-
   };
 
   handleChange = ev => {
@@ -68,37 +63,36 @@ class SignUp extends Component {
             name="name"
             type="text"
           />
-        <br></br>
-        <label>Age:</label>
+          <br />
+          <label>Age:</label>
           <input
             onChange={ev => this.handleChange(ev)}
             name="age"
             type="text"
           />
-          <br></br>
+          <br />
           <label>Hometown:</label>
           <input
             onChange={ev => this.handleChange(ev)}
             name="hometown"
             type="text"
           />
-        <br></br>
-        <label>Enemy:</label>
+          <br />
+          <label>Enemy:</label>
           <input
             onChange={ev => this.handleChange(ev)}
             name="enemy"
             type="text"
           />
-        <br></br>
-        <label>Image:</label>
+          <br />
+          <label>Image:</label>
           <input
             onChange={ev => this.handleChange(ev)}
             name="image"
             type="text"
           />
-        <br></br>
-        <Link to="/home"><input type="submit" /></Link>
-        <Route exact path="/home" component={() => <Home />} />
+          <br />
+          <input type="submit" />
         </form>
 
         <div>
