@@ -35,7 +35,7 @@ class App extends Component {
                 path="/sign-up"
                 component={() => <SignUp setTrainer={this.setTrainer} />}
               />
-              <Route path="/login" component={() => <Login />} />
+              <Route path="/login" component={() => <Login setTrainer={this.setTrainer}/>} />
               <Route
                 path="/home"
                 component={() => <Home trainer={this.state.trainer} />}

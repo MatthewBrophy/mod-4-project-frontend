@@ -15,20 +15,20 @@ class Login extends Component {
   }
 
   getTrainer = () => {
-    let url = "http://localhost:3000/api/v1/trainers/";
+    let url = `http://localhost:3000/api/v1/trainers/name/${this.state.name}`;
     fetch(url)
       .then(res => res.json())
       .then(
-        newTrainer => (
-          this.setState({ trainer: newTrainer, redirect: true }),
-          this.props.setTrainer(newTrainer)
+        foundTrainer => (
+          this.setState({ trainer: foundTrainer, redirect: true }),
+          this.props.setTrainer(foundTrainer)
         )
       );
   };
 
   submitForm = ev => {
     ev.preventDefault();
-    this.createTrainer();
+    this.getTrainer();
   };
 
   handleChange = ev => {
