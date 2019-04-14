@@ -4,12 +4,19 @@ import LandingPage from "./Components/LandingPage";
 import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
 import Home from "./Containers/Home";
+import Pikachu from "./images/pikachu-2.gif";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      trainer: {}
+      trainer: {
+        name: "Matt",
+        hometown: "Pallet Town",
+        age: 35,
+        enemy: "Kevin",
+        image: Pikachu
+      }
     };
   }
 

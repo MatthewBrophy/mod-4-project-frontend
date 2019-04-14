@@ -35,3 +35,11 @@ code {
 .form-horizontal .text-right {
   text-align: right;
 }
+
+.pokemon-card {
+  text-align: center;
+  width: 200px;
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid red;
+}
