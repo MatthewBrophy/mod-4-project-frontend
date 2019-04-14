@@ -55,4 +55,9 @@ code {
   width: 150px;
   height: 150px;
   margin-left: 150px;
+  padding: 10px;
+}
+
+.first-home-box {
+  margin-top: 10px;
 }

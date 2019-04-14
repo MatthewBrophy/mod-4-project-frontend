@@ -26,9 +26,10 @@ class Home extends Component {
   render() {
     return (
       <div className="container">
-        <div className=" row justify-content-center align-items-center">
+        <div className=" row justify-content-center align-items-center first-home-box">
           <h4 className="row justify-content-center align-items-center">
             Welcome {this.state.trainer.name} from {this.state.trainer.hometown}
+            !
           </h4>
           <img
             className="trainer-image"
