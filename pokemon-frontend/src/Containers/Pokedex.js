@@ -7,7 +7,7 @@ class Pokedex extends Component {
   }
   render() {
     return (
-      <div className="row col-10 card-deck pokedex justify-content-center align-items-center">
+      <div className="row col-8" id="pokedex">
         {this.props.pokedex.map(pokemon => (
           <Pokemon key={pokemon.id} pokemon={pokemon} />
         ))}

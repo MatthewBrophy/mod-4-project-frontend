@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Login from "./Login";
-import SignUp from "./SignUp";
+
 import LandingPageImage from "../../src/images/maxresdefault.jpg";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
