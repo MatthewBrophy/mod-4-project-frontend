@@ -11,16 +11,37 @@ class Home extends Component {
     super(props);
     this.state = {
       pokedex: [],
-      trainersPokemon: [1,2,3],
+      trainersPokemon: [{
+        back_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/138.png",
+        front_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/138.png",
+        hp: 35,
+        id: 138,
+        name: "omanyte",
+        weight: 75
+      },
+      {
+        back_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/139.png",
+        front_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/139.png",
+        hp: 70,
+        id: 139,
+        name: "omastar",
+        weight: 350
+      },
+      {
+        back_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/142.png",
+        front_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/142.png",
+        hp: 80,
+        id: 142,
+        name: "aerodactyl",
+        weight: 590
+      }
+    ],
       trainer: this.props.trainer,
       selected: 'pokedex'
     };
     this.populatePokedex()
+    console.log(this.state)
   }
-
-  // componentDidMount() {
-  //   this.populatePokedex();
-  // }
 
   populatePokedex = () => {
     fetch(AllPokemonURL)
@@ -33,7 +54,7 @@ class Home extends Component {
       return <Pokedex pokedex={this.state.pokedex} />
     }
     else if (this.state.selected === 'team') {
-      return <Team trainersPokemon={this.props.trainersPokemon}/>
+      return <Team trainersPokemon={this.state.trainersPokemon}/>
     }
     else {
       return <Trainer trainer={this.props.trainer}/>

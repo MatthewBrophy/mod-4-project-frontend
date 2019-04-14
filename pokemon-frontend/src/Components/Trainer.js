@@ -15,14 +15,11 @@ class Trainer extends Component {
     return(
       <div className="row col-8" id="pokedex">
         <div>
+        <h1>Trainer Info</h1>
           <p>You are {this.props.trainer.age} years old</p>
           <p>You're enemy is {this.props.trainer.enemy} :(</p>
+          <img src={this.props.trainer.image} alt='trainer' />
         </div>
-        <img
-          className="trainer-image"
-          src={this.props.trainer.image}
-          alt=""
-        />
       </div>
     )
   }

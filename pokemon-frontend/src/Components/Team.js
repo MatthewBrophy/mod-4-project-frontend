@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import Pokemon from "../Components/Pokemon";
 
 class Team extends Component {
   constructor(props){
@@ -7,23 +8,16 @@ class Team extends Component {
     console.log(props)
   }
 
-  displayPokemon = () => {
-    return this.props.trainersPokemon.map(pokemon => {
-      return <li onClick={() => this.handleClick()}> pokemon </li>;
-    });
-  };
-
-  handleClick = () => {
-    console.log("supposed to go to pokemon show page");
-  };
-
   render() {
     return (
-      <div>
-        <h1> Your Pokemon! </h1>
-
-        {this.displayPokemon()}
-      </div>
+      <Fragment>
+        <h1>Your Pokemon!</h1>
+        <div className="row col-8" id="pokedex">
+          {this.props.trainersPokemon.map(pokemon => (
+            <Pokemon key={pokemon.id} pokemon={pokemon} />
+          ))}
+        </div>
+      </Fragment>
     );
   }
 }
