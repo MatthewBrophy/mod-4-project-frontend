@@ -31,3 +31,7 @@ code {
   padding-top: 30px;
   padding-left: 30px;
 }
+
+.form-horizontal .text-right {
+  text-align: right;
+}

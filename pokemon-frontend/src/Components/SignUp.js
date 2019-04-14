@@ -58,48 +58,55 @@ class SignUp extends Component {
       <Redirect to="/Home" />
     ) : (
       <div>
-        <label>Tell me about yourself!</label>
-        <form onSubmit={ev => this.submitForm(ev)}>
-          <label>Name:</label>
-          <input
-            onChange={ev => this.handleChange(ev)}
-            name="name"
-            type="text"
-          />
-          <br />
-          <label>Age:</label>
-          <input
-            onChange={ev => this.handleChange(ev)}
-            name="age"
-            type="text"
-          />
-          <br />
-          <label>Hometown:</label>
-          <input
-            onChange={ev => this.handleChange(ev)}
-            name="hometown"
-            type="text"
-          />
-          <br />
-          <label>Enemy:</label>
-          <input
-            onChange={ev => this.handleChange(ev)}
-            name="enemy"
-            type="text"
-          />
-          <br />
-          <label>Image:</label>
-          <input
-            onChange={ev => this.handleChange(ev)}
-            name="image"
-            type="text"
-          />
-          <br />
+        <div className="row justify-content-center align-items-center">
+          <label>Tell me about yourself!</label>
+        </div>
+        <div className="row justify-content-center">
+          <form
+            onSubmit={ev => this.submitForm(ev)}
+            className="form-horizontal text-right"
+          >
+            <label>Name:</label>
+            <input
+              onChange={ev => this.handleChange(ev)}
+              name="name"
+              type="text"
+            />
+            <br />
+            <label>Age:</label>
+            <input
+              onChange={ev => this.handleChange(ev)}
+              name="age"
+              type="text"
+            />
+            <br />
+            <label>Hometown:</label>
+            <input
+              onChange={ev => this.handleChange(ev)}
+              name="hometown"
+              type="text"
+            />
+            <br />
+            <label>Enemy:</label>
+            <input
+              onChange={ev => this.handleChange(ev)}
+              name="enemy"
+              type="text"
+            />
+            <br />
+            <label>Image:</label>
+            <input
+              onChange={ev => this.handleChange(ev)}
+              name="image"
+              type="text"
+            />
+            <br />
 
-          <input type="submit" />
-        </form>
-
-        <div>
+            <input type="submit" />
+          </form>
+        </div>
+        <br />
+        <div className="row justify-content-center align-items-center">
           <img src={Ash} />
         </div>
       </div>
