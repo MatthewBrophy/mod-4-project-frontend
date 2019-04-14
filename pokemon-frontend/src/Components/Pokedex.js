@@ -5,9 +5,11 @@ class Pokedex extends Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return (
       <Fragment>
+        <h1>All Pokemon!</h1>
         <div className="row col-8" id="pokedex">
           {this.props.pokedex.map(pokemon => (
             <Pokemon key={pokemon.id} pokemon={pokemon} />
