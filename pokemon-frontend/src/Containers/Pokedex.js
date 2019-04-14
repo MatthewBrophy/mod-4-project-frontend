@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Pokemon from "../Components/Pokemon";
 
 class Pokedex extends Component {
@@ -7,11 +7,13 @@ class Pokedex extends Component {
   }
   render() {
     return (
-      <div className="row col-8" id="pokedex">
-        {this.props.pokedex.map(pokemon => (
-          <Pokemon key={pokemon.id} pokemon={pokemon} />
-        ))}
-      </div>
+      <Fragment>
+        <div className="row col-8" id="pokedex">
+          {this.props.pokedex.map(pokemon => (
+            <Pokemon key={pokemon.id} pokemon={pokemon} />
+          ))}
+        </div>
+      </Fragment>
     );
   }
 }

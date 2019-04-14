@@ -30,7 +30,11 @@ class Home extends Component {
           <h4 className="row justify-content-center align-items-center">
             Welcome {this.state.trainer.name} from {this.state.trainer.hometown}
           </h4>
-          <img src={this.state.trainer.image} alt="" />
+          <img
+            className="trainer-image"
+            src={this.state.trainer.image}
+            alt=""
+          />
           <Pokedex pokedex={this.state.pokedex} />
         </div>
       </div>

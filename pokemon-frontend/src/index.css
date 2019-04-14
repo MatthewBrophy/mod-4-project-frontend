@@ -50,3 +50,9 @@ code {
   overflow: auto;
   flex-wrap: nowrap;
 }
+
+.trainer-image {
+  width: 150px;
+  height: 150px;
+  margin-left: 150px;
+}
