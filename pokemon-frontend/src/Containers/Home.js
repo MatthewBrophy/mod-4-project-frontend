@@ -11,13 +11,13 @@ class Home extends Component {
     super(props);
     this.state = {
       pokedex: [],
-      trainersPokemon: this.props.trainersPokemon,
+      trainersPokemon: [],
       trainer: this.props.trainer,
       selected: "pokedex"
     };
     this.populatePokedex();
     console.log(this.state.trainer.id)
-    //this.getTeam()
+    this.getTeam()
   }
 
   populatePokedex = () => {
@@ -31,10 +31,9 @@ class Home extends Component {
     fetch(url)
     .then(data => data.json())
     .then(team => {
-      console.log(team)
-      // this.setState((prevState) => ({
-      //   trainersPokemon: [...prevState.trainersPokemon, team]
-      // }))
+      this.setState({
+        
+      })
     })
   }
 
