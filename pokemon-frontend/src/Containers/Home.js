@@ -13,10 +13,10 @@ class Home extends Component {
       pokedex: [],
       trainersPokemon: this.props.trainersPokemon,
       trainer: this.props.trainer,
-      selected: 'pokedex'
+      selected: "pokedex"
     };
-    this.populatePokedex()
-    console.log(this.state)
+    this.populatePokedex();
+    console.log(this.props.selectedStarter);
   }
 
   populatePokedex = () => {
@@ -26,23 +26,20 @@ class Home extends Component {
   };
 
   displayContent = () => {
-    if (this.state.selected === 'pokedex'){
-      return <Pokedex pokedex={this.state.pokedex} />
+    if (this.state.selected === "pokedex") {
+      return <Pokedex pokedex={this.state.pokedex} />;
+    } else if (this.state.selected === "team") {
+      return <Team trainersPokemon={this.state.trainersPokemon} />;
+    } else {
+      return <Trainer trainer={this.props.trainer} />;
     }
-    else if (this.state.selected === 'team') {
-      return <Team trainersPokemon={this.state.trainersPokemon}/>
-    }
-    else {
-      return <Trainer trainer={this.props.trainer}/>
-    }
-  }
+  };
 
-  handleClick = (ev) => {
-    console.log(ev.target.name)
+  handleClick = ev => {
     this.setState({
       selected: ev.target.name
-    })
-  }
+    });
+  };
 
   render() {
     return (
@@ -53,8 +50,8 @@ class Home extends Component {
             !
           </h4>
           {this.displayContent()}
-          <br></br>
-          <PokedexButtons handleClick={this.handleClick}/>
+          <br />
+          <PokedexButtons handleClick={this.handleClick} />
         </div>
       </div>
     );

@@ -17,8 +17,8 @@ class App extends Component {
         age: 35,
         enemy: "Kevin",
         image: Pikachu
-      }
-
+      },
+      trainersPokemon: []
     };
   }
 
@@ -26,10 +26,10 @@ class App extends Component {
     this.setState({ trainer: newTrainer });
   };
 
-  setTeam = newPokemon=> {
-    this.setState((prevState) => ({
-      trainersPokemon: [...prevState.trainersPokemon, newPokemon]
-    }))
+  selectStarter = pokemon => {
+    this.setState(prevState => ({
+      trainersPokemon: [pokemon, ...prevState.trainersPokemon]
+    }));
   };
 
   render() {
@@ -45,12 +45,22 @@ class App extends Component {
               />
               <Route
                 path="/choose-starter"
-                component={() => <ChooseStarter setTeam={this.setTeam}/>}
+                component={() => <ChooseStarter />}
               />
-              <Route path="/login" component={() => <Login setTrainer={this.setTrainer}/>} />
+              <Route
+                path="/login"
+                component={() => <Login setTrainer={this.setTrainer} />}
+              />
               <Route
                 path="/home"
-                component={() => <Home trainer={this.state.trainer} trainersPokemon={this.state.trainersPokemon}/>}
+                component={() => (
+                  <Home
+                    trainer={this.state.trainer}
+                    trainersPokemon={this.state.trainersPokemon}
+                    selectStarter={pokemon => this.selectStarter(pokemon)}
+                    selectedStarter={this.state.trainersPokemon}
+                  />
+                )}
               />
             </Switch>
           </div>

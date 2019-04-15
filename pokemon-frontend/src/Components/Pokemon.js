@@ -9,7 +9,6 @@ const Pokemon = props => {
         <p>
           HP: {props.pokemon.hp} <br /> Weight: {props.pokemon.weight}
         </p>
-        {console.log(props.pokemon)}
       </div>
     </div>
   );

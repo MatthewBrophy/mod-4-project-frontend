@@ -8,7 +8,7 @@ class ChooseStarter extends Component {
     super(props);
 
     this.state = {
-      selected_pokemon: {},
+      selectedPokemon: {},
       redirect: false,
       starters: [
         {
@@ -43,26 +43,26 @@ class ChooseStarter extends Component {
         }
       ]
     };
-
-    console.log(this.state.starters);
   }
 
   submitForm = ev => {
     ev.preventDefault();
     this.setState({ redirect: true });
-    //this.props.setTeam(this.state.starters[this.state.pokemon_index]);
   };
 
   handleChange = ev => {
     this.setState({
-      selected_pokemon: this.state.starters[ev.target.value]
+      selectedPokemon: this.state.starters[ev.target.value]
     });
-    console.log(this.state.selected_pokemon);
+    console.log(this.state.selectedPokemon);
   };
 
   render() {
     return this.state.redirect === true ? (
-      <Redirect to="/Home" />
+      <Redirect
+        to="/Home"
+        render={() => <Home selectedStarter={this.state.selectedPokemon} />}
+      />
     ) : (
       <div>
         <form onSubmit={ev => this.submitForm(ev)}>
