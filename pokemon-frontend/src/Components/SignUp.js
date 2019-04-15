@@ -14,7 +14,7 @@ class SignUp extends Component {
       image: "",
       enemy: "",
       trainer: {},
-      redirect: false
+      status: 0
     };
   }
 
@@ -34,6 +34,7 @@ class SignUp extends Component {
       })
     })
       .then(res => {
+        this.setState({ status: res.status })
         if (res.status !== 200){
           //console.log("bad")
           alert("Username already exists!")
@@ -62,7 +63,7 @@ class SignUp extends Component {
   };
 
   render() {
-    return this.state.redirect === true ? (
+    return this.state.status === 200 ? (
       <Redirect to="/choose-starter" />
     ) : (
       <div>
