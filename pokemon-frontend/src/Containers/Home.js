@@ -16,8 +16,7 @@ class Home extends Component {
       selected: "pokedex"
     };
     this.populatePokedex();
-    console.log(this.state.trainer.id)
-    this.getTeam()
+    this.getTeam();
   }
 
   populatePokedex = () => {
@@ -27,15 +26,16 @@ class Home extends Component {
   };
 
   getTeam = () => {
-    let url = `http://localhost:3000/api/v1/teams/find/${this.state.trainer.id}`;
+    let url = `http://localhost:3000/api/v1/teams/find/${
+      this.state.trainer.id
+    }`;
     fetch(url)
-    .then(data => data.json())
-    .then(team => {
-      this.setState({
-        
-      })
-    })
-  }
+      .then(data => data.json())
+      .then(team => {
+        console.log(team);
+        this.setState({ trainersPokemon: team });
+      });
+  };
 
   displayContent = () => {
     if (this.state.selected === "pokedex") {

@@ -23,18 +23,17 @@ class App extends Component {
   }
 
   setTrainer = newTrainer => {
-    this.setState({ trainer: newTrainer })
+    this.setState({ trainer: newTrainer });
   };
 
   selectStarter = pokemon => {
-    this.createTeam(pokemon)
+    this.createTeam(pokemon);
     this.setState(prevState => ({
       trainersPokemon: [pokemon, ...prevState.trainersPokemon]
     }));
-
   };
 
-  createTeam = (pokemon) => {
+  createTeam = pokemon => {
     let url = "http://localhost:3000/api/v1/teams";
     fetch(url, {
       method: "POST",
@@ -47,12 +46,13 @@ class App extends Component {
       })
     })
       .then(res => res.json())
-      .then(
-        newTeam => (
-          console.log(newTeam)
-        )
-      );
-  }
+      .then(newTeam => {
+        console.log(newTeam);
+        const oldTeam = this.state.trainersPokemon;
+        const newNew = oldTeam.push(newTeam);
+        this.setState({ trainersPokemon: newNew });
+      });
+  };
 
   render() {
     return (
@@ -67,7 +67,12 @@ class App extends Component {
               />
               <Route
                 path="/choose-starter"
-                component={() => <ChooseStarter trainersPokemon={this.state.trainersPokemon} selectStarter={this.selectStarter}/>}
+                component={() => (
+                  <ChooseStarter
+                    trainersPokemon={this.state.trainersPokemon}
+                    selectStarter={this.selectStarter}
+                  />
+                )}
               />
               <Route
                 path="/login"
