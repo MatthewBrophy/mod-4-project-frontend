@@ -40,12 +40,12 @@ class SignUp extends Component {
           alert("Username already exists!")
 
         } else {
-        let newTrainer = res.json()
+        return res.json()
       }
       })
       .then(
         newTrainer => (
-          this.setState({ trainer: newTrainer, redirect: true }),
+          this.setState({ trainer: newTrainer}),
           this.props.setTrainer(newTrainer)
         )
       );

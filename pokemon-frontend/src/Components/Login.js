@@ -10,17 +10,27 @@ class Login extends Component {
     this.state = {
       name: "",
       trainer: {},
-      redirect: false
+      status: 0
     }
   }
 
   getTrainer = () => {
     let url = `http://localhost:3000/api/v1/trainers/name/${this.state.name}`;
     fetch(url)
-      .then(res => res.json())
+      .then(res => {
+        this.setState({ status: res.status })
+        if (res.status !== 200){
+          //console.log("bad")
+          alert("Username does not exist!")
+
+        } else {
+        return res.json()
+        }
+      })
       .then(
         foundTrainer => (
-          this.setState({ trainer: foundTrainer, redirect: true }),
+          //console.log(foundTrainer),
+          this.setState({ trainer: foundTrainer}),
           this.props.setTrainer(foundTrainer)
         )
       );
@@ -38,7 +48,7 @@ class Login extends Component {
   };
 
   render() {
-    return this.state.redirect === true ? (
+    return this.state.status === 200 ? (
       <Redirect to="/Home" />
     ) : (
       <div>
