@@ -8,59 +8,49 @@ class ChooseStarter extends Component {
     super(props);
 
     this.state = {
-      pokemon_index: 0,
+      selected_pokemon: {},
       redirect: false,
-      starters: []
-    }
+      starters: [
+        {
+        back_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/4.png",
+        front_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+        hp: 39,
+        id: 4,
+        name: "charmander",
+        weight: 85
+      },
+      {
+        back_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png",
+        front_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+        hp: 45,
+        id: 1,
+        name: "bulbasaur",
+        weight: 69
+      },
+      {
+        back_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/7.png",
+        front_img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+        hp: 44,
+        id: 7,
+        name: "squirtle",
+        weight: 90
+      }]
+    };
 
-    let starters_id = [1,4,7]
-    starters_id.forEach(starter => {
-      this.getPokemon(starter)
-    })
-  }
-
-  getPokemon = (starter) => {
-    let url = `http://localhost:3000/api/v1/pokemons/${starter}`;
-    fetch(url)
-    .then(data => data.json())
-      .then(
-        foundPokemon => (
-          this.setState((prevState) => ({
-            starters: [foundPokemon, ...prevState.starters]
-          }))
-        )
-      )
-  };
-
-  displayStarters = () => {
-    return this.state.starters.map((pokemon, index) => {
-      return (
-      <div>
-      <img src={pokemon.front_img} />
-        <input
-          onChange={ev => this.handleChange(ev)}
-          name="starters"
-          type="radio"
-          value={index}
-        />
-      </div>
-      )
-    })
+    console.log(this.state.starters)
   }
 
   submitForm = ev => {
     ev.preventDefault();
-    this.setState({
-      redirect: true
-    });
-    this.props.setTeam(this.state.starters[this.state.pokemon_index]);
-    console.log(this.state.redirect)
+    this.setState({ redirect: true });
+    //this.props.setTeam(this.state.starters[this.state.pokemon_index]);
   };
 
   handleChange = ev => {
     this.setState({
-      pokemon_index: ev.target.value
+      selected_pokemon: this.state.starters[ev.target.value]
     });
+    console.log(this.state.selected_pokemon)
   };
 
   render() {
@@ -68,21 +58,38 @@ class ChooseStarter extends Component {
       <Redirect to="/Home" />
     ) : (
       <div>
-        <div className="row justify-content-center">
-        <label>Which Pokemon will you choose?</label>
-          <form
-            onSubmit={(ev) => this.submitForm(ev)}
-            className="text-right"
-          >
-          {this.displayStarters()}
-            <br />
-            <input type="submit" />
-          </form>
+        <form onSubmit={ev => this.submitForm(ev)}>
+          <label>Name:</label>
+          <div>
+           <img src={this.state.starters[0].front_img} />
+             <input
+              onChange={(ev) => this.handleChange(ev)}
+               name="starters"
+               type="radio"
+               value="0"
+             />
+         </div>
+         <div>
+          <img src={this.state.starters[1].front_img} />
+            <input
+              onChange={(ev) => this.handleChange(ev)}
+              name="starters"
+              type="radio"
+              value="1"
+            />
         </div>
-        <br />
-        <div className="row justify-content-center align-items-center">
-          <img src={Ash} />
-        </div>
+        <div>
+         <img src={this.state.starters[2].front_img} />
+           <input
+            onChange={(ev) => this.handleChange(ev)}
+             name="starters"
+             type="radio"
+             value="2"
+           />
+       </div>
+
+          <input type="submit" />
+        </form>
       </div>
     );
   }
