@@ -55,7 +55,7 @@ class SignUp extends Component {
 
   render() {
     return this.state.redirect === true ? (
-      <Redirect to="/Home" />
+      <Redirect to="/choose-starter" />
     ) : (
       <div>
         <div className="row justify-content-center align-items-center">

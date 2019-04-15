@@ -27,10 +27,32 @@ class App extends Component {
   };
 
   selectStarter = pokemon => {
+    this.createTeam(pokemon)
     this.setState(prevState => ({
       trainersPokemon: [pokemon, ...prevState.trainersPokemon]
     }));
+
   };
+
+  createTeam = (pokemon) => {
+    let url = "http://localhost:3000/api/v1/teams";
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        trainer_id: this.state.trainer.id,
+        pokemon_id: pokemon.id
+      })
+    })
+      .then(res => res.json())
+      .then(
+        newTeam => (
+          console.log(newTeam)
+        )
+      );
+  }
 
   render() {
     return (
