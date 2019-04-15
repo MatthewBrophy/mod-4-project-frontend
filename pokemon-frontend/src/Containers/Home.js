@@ -25,6 +25,19 @@ class Home extends Component {
       .then(pokemon => this.setState({ pokedex: pokemon }));
   };
 
+  getPokemon = (pokemon) => {
+    let pokemonId = pokemon.pokemon_id
+    let url = `http://localhost:3000/api/v1/pokemons/${pokemonId}`
+    fetch(url)
+    .then(data => data.json())
+    .then(foundPokemon => {
+      //console.log("fetched pokemon", foundPokemon)
+      this.setState((prevState) => ({
+        trainersPokemon: [foundPokemon, ...prevState.trainersPokemon]
+      }));
+    })
+  }
+
   getTeam = () => {
     let url = `http://localhost:3000/api/v1/teams/find/${
       this.state.trainer.id
@@ -32,8 +45,10 @@ class Home extends Component {
     fetch(url)
       .then(data => data.json())
       .then(team => {
-        console.log(team);
-        this.setState({ trainersPokemon: team });
+        //console.log(team)
+        team.forEach(pokemon => {
+          this.getPokemon(pokemon)
+        })
       });
   };
 
