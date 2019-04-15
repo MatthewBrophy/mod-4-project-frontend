@@ -5,6 +5,7 @@ import Home from "../Containers/Home";
 
 class ChooseStarter extends Component {
   constructor(props) {
+    console.log("RENDER ChooseStarter")
     super(props);
 
     this.state = {
@@ -47,7 +48,7 @@ class ChooseStarter extends Component {
 
   submitForm = ev => {
     ev.preventDefault();
-    this.setState({ redirect: true });
+    this.props.selectStarter(this.state.selectedPokemon);
   };
 
   handleChange = ev => {
@@ -58,10 +59,9 @@ class ChooseStarter extends Component {
   };
 
   render() {
-    return this.state.redirect === true ? (
+    return this.props.trainersPokemon.length > 0 ? (
       <Redirect
-        to="/Home"
-        render={() => <Home selectedStarter={this.state.selectedPokemon} />}
+        to="/home"
       />
     ) : (
       <div>

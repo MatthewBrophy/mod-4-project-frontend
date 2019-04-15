@@ -27,6 +27,7 @@ class App extends Component {
   };
 
   selectStarter = pokemon => {
+    console.log("WE'RE HERE")
     this.setState(prevState => ({
       trainersPokemon: [pokemon, ...prevState.trainersPokemon]
     }));
@@ -45,7 +46,7 @@ class App extends Component {
               />
               <Route
                 path="/choose-starter"
-                component={() => <ChooseStarter />}
+                component={() => <ChooseStarter trainersPokemon={this.state.trainersPokemon} selectStarter={this.selectStarter}/>}
               />
               <Route
                 path="/login"
@@ -57,8 +58,6 @@ class App extends Component {
                   <Home
                     trainer={this.state.trainer}
                     trainersPokemon={this.state.trainersPokemon}
-                    selectStarter={pokemon => this.selectStarter(pokemon)}
-                    selectedStarter={this.state.trainersPokemon}
                   />
                 )}
               />
