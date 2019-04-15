@@ -27,7 +27,6 @@ class App extends Component {
   };
 
   selectStarter = pokemon => {
-    console.log("WE'RE HERE")
     this.setState(prevState => ({
       trainersPokemon: [pokemon, ...prevState.trainersPokemon]
     }));

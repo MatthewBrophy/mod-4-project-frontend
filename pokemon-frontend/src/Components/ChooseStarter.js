@@ -5,7 +5,6 @@ import Home from "../Containers/Home";
 
 class ChooseStarter extends Component {
   constructor(props) {
-    console.log("RENDER ChooseStarter")
     super(props);
 
     this.state = {
@@ -55,7 +54,6 @@ class ChooseStarter extends Component {
     this.setState({
       selectedPokemon: this.state.starters[ev.target.value]
     });
-    console.log(this.state.selectedPokemon);
   };
 
   render() {
