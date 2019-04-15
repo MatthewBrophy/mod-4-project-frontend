@@ -33,7 +33,15 @@ class SignUp extends Component {
         image: this.state.image
       })
     })
-      .then(res => res.json())
+      .then(res => {
+        if (res.status !== 200){
+          //console.log("bad")
+          alert("Username already exists!")
+
+        } else {
+        let newTrainer = res.json()
+      }
+      })
       .then(
         newTrainer => (
           this.setState({ trainer: newTrainer, redirect: true }),
