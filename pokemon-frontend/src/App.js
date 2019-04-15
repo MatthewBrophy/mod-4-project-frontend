@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   setTrainer = newTrainer => {
-    this.setState({ trainer: newTrainer });
+    this.setState({ trainer: newTrainer })
   };
 
   selectStarter = pokemon => {
@@ -79,6 +79,7 @@ class App extends Component {
                   <Home
                     trainer={this.state.trainer}
                     trainersPokemon={this.state.trainersPokemon}
+                    setTeam={this.setTeam}
                   />
                 )}
               />

@@ -16,7 +16,8 @@ class Home extends Component {
       selected: "pokedex"
     };
     this.populatePokedex();
-    console.log(this.props.selectedStarter);
+    console.log(this.state.trainer.id)
+    //this.getTeam()
   }
 
   populatePokedex = () => {
@@ -24,6 +25,18 @@ class Home extends Component {
       .then(response => response.json())
       .then(pokemon => this.setState({ pokedex: pokemon }));
   };
+
+  getTeam = () => {
+    let url = `http://localhost:3000/api/v1/teams/find/${this.state.trainer.id}`;
+    fetch(url)
+    .then(data => data.json())
+    .then(team => {
+      console.log(team)
+      // this.setState((prevState) => ({
+      //   trainersPokemon: [...prevState.trainersPokemon, team]
+      // }))
+    })
+  }
 
   displayContent = () => {
     if (this.state.selected === "pokedex") {
