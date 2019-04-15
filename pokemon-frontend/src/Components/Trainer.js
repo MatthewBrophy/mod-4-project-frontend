@@ -18,6 +18,16 @@ class Trainer extends Component {
             <p>You're enemy is {this.props.trainer.enemy} :(</p>
             <img src={this.props.trainer.image} alt='trainer' />
         </div>
+        <button >edit trainer</button>
+        <form>
+          <label>Age:</label>
+          <input type="text"></input>
+          <label>Enemy:</label>
+          <input type="text"></input>
+          <label>Image:</label>
+          <input type="text"></input>
+          <input type="submit"></input>
+        </form>
       </Fragment>
     )
   }
