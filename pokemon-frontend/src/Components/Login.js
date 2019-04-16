@@ -50,28 +50,29 @@ class Login extends Component {
     return this.state.status === 200 ? (
       <Redirect to="/Home" />
     ) : (
-      <div>
+      <div className="container login-sign-up-margin">
+        <div className="row  justify-content-center align-items-center">
+          <div className="col-sm-4">
+            <form
+              onSubmit={ev => this.submitForm(ev)}
+              className="form-horizontal text-right"
+            >
+              <label>Name:</label>
+              <input
+                onChange={ev => this.handleChange(ev)}
+                name="name"
+                type="text"
+              />
+              <br />
+              <input type="submit" className="button"/>
+            </form>
+          </div>
+          <div className="col-sm-4">
+            <img src={Ash} />
+          </div>
+        </div>
         <div className="row justify-content-center align-items-center">
           <label>Tell me about yourself!</label>
-        </div>
-        <div className="row justify-content-center">
-          <form
-            onSubmit={ev => this.submitForm(ev)}
-            className="form-horizontal text-right"
-          >
-            <label>Name:</label>
-            <input
-              onChange={ev => this.handleChange(ev)}
-              name="name"
-              type="text"
-            />
-            <br />
-            <input type="submit" />
-          </form>
-        </div>
-        <br />
-        <div className="row justify-content-center align-items-center">
-          <img src={Ash} />
         </div>
       </div>
     );
