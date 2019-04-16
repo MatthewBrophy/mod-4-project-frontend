@@ -106,6 +106,10 @@ class ChooseStarter extends Component {
                 value="2"
               />
             </div>
+            <div className="row">
+              <h2>Give Your pokemon a nickname!</h2>
+              <input name="nickname" type="text" ></input>
+            </div>
 
             <input type="submit" className="choose-submit-button" />
           </form>

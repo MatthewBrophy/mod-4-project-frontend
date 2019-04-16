@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CatchButtons from "../Components/CatchButtons";
 import Nickname from "../Components/Nickname";
 import { Redirect } from "react-router-dom";
+import Pending from "../images/pending_pokeball.gif";
 
 class Catch extends Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class Catch extends Component {
       trainer: this.props.trainer,
       wildPokemon: this.getRandomPokemon(),
       attempts: 3,
-      caught: false
+      caught: false,
+      inPokeball: false
     };
   }
 
@@ -28,12 +30,12 @@ class Catch extends Component {
     } else {
       let catchChance = Math.floor(Math.random() * 100)
       if (catchChance > failChance) {
-        this.setState({ caught: true})
-        //this.props.createTeam(this.state.wildPokemon)
+        this.setState({ caught: true, })
+      } else {
+        this.setState((prevState) => ({
+          attempts: prevState.attempts - 1
+        }))
       }
-      this.setState((prevState) => ({
-        attempts: prevState.attempts - 1
-      }))
     }
   };
 
@@ -50,6 +52,14 @@ class Catch extends Component {
     }
   }
 
+  displayPokemon = () => {
+    if (this.state.inPokeball === true) {
+      return <img src={Pending} alt="pokeball" />
+    } else {
+      return <img src={this.state.wildPokemon.front_img} alt={this.state.wildPokemon.name} className="choose-pokemon-pic"/>
+    }
+  }
+
   render() {
     return (
       <div className="container login-sign-up-margin">
@@ -59,7 +69,7 @@ class Catch extends Component {
             <p>HP: {this.state.wildPokemon.hp}</p>
           </div>
           <div className="col-3">
-            <img src={this.state.wildPokemon.front_img} alt={this.state.wildPokemon.name} />
+            {this.displayPokemon()}
           </div>
         </div>
         <div className="row justify-content-center">
