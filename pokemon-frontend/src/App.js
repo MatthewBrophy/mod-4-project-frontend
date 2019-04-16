@@ -5,6 +5,7 @@ import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
 import ChooseStarter from "./Components/ChooseStarter";
 import Home from "./Containers/Home";
+import Catch from "./Containers/Catch"
 
 class App extends Component {
   constructor(props) {
@@ -77,6 +78,10 @@ class App extends Component {
               <Route
                 path="/login"
                 component={() => <Login setTrainer={this.setTrainer} />}
+              />
+              <Route
+                path="/catch"
+                component={() => <Catch createTeam={this.createTeam} trainer={this.state.trainer} />}
               />
               <Route
                 path="/home"

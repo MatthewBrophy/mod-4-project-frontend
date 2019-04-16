@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import Pokedex from "../Components/Pokedex";
 import Trainer from "../Components/Trainer";
+import Catch from "./Catch"
 import Team from "../Components/Team";
+import { Redirect } from "react-router-dom";
 import PokedexButtons from "../Components/PokedexButtons";
 
 const AllPokemonURL = "http://localhost:3000/api/v1/pokemons";
@@ -52,6 +54,8 @@ class Home extends Component {
       });
   };
 
+
+
   displayContent = () => {
     if (this.state.selected === "pokedex") {
       return (
@@ -69,13 +73,17 @@ class Home extends Component {
           </div>
         </div>
       )
-    } else {
+    } else if (this.state.selected === "trainer") {
       return (
         <div className="container">
           <div className="row justify-content-center align-items-center first-home-box">
             <Trainer setTrainer={trainer => this.props.setTrainer(trainer)} trainer={this.props.trainer}/>
           </div>
         </div>
+      )
+    } else  {
+      return (
+        <Redirect to="/catch" />
       )
     }
   };
@@ -99,6 +107,9 @@ class Home extends Component {
           <div className="col-4 justify-content-center align-items-center">
             <PokedexButtons handleClick={this.handleClick} />
           </div>
+        </div>
+        <div className="row">
+          <button className="button" onClick={() => this.setState({selected: "catch"})}>Catch 'em All</button>
         </div>
       </div>
     );
