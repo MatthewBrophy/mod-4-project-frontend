@@ -23,7 +23,7 @@ class EditTrainer extends Component {
   render(){
     return(
       <Fragment>
-          <form onSubmit={(ev) => this.props.updateTrainer(ev)}>
+          <form className="form-horizontal text-right" onSubmit={(ev) => this.props.updateTrainer(ev)}>
             <label>Hometown:</label>
             <input name="hometown" type="text" value={this.state.hometown} onChange={(ev) => this.handleChange(ev)}></input>
             <label>Age:</label>
