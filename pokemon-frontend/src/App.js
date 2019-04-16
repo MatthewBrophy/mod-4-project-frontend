@@ -10,7 +10,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      trainer: {},
+      trainer: {
+        id:900,
+        name: 'Matt',
+        hometown: 'here',
+        age: 4000,
+        image: "https://cdn.bulbagarden.net/upload/thumb/a/a2/ORAS_Pok%C3%A9mon_Ranger_M.png/150px-ORAS_Pok%C3%A9mon_Ranger_M.png",
+        enemy: 'kevin'
+      },
       trainersPokemon: []
     };
   }

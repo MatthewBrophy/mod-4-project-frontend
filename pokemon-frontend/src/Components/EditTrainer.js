@@ -23,17 +23,27 @@ class EditTrainer extends Component {
   render(){
     return(
       <Fragment>
-          <form className="form-horizontal text-right" onSubmit={(ev) => this.props.updateTrainer(ev)}>
-            <label>Hometown:</label>
-            <input name="hometown" type="text" value={this.state.hometown} onChange={(ev) => this.handleChange(ev)}></input>
-            <label>Age:</label>
-            <input name="age" type="text" value={this.state.age} onChange={(ev) => this.handleChange(ev)}></input>
-            <label>Enemy:</label>
-            <input name="enemy" type="text" value={this.state.enemy} onChange={(ev) => this.handleChange(ev)}></input>
-            <label>Image:</label>
-            <input name="image" type="text" value={this.state.image} onChange={(ev) => this.handleChange(ev)}></input>
-            <input type="submit" ></input>
-          </form>
+        <div className="container">
+          <div className="row justify-content-center align-items-center">
+            <h1>Edit Trainer Info!</h1>
+          </div>
+            <div className="row col-8">
+              <form onSubmit={(ev) => this.props.updateTrainer(ev)} className="form-horizontal text-right">
+                <label>Hometown:</label>
+                <input name="hometown" type="text" value={this.state.hometown} onChange={(ev) => this.handleChange(ev)}></input>
+                <br />
+                <label>Age:</label>
+                <input name="age" type="text" value={this.state.age} onChange={(ev) => this.handleChange(ev)}></input>
+                <br />
+                <label>Enemy:</label>
+                <input name="enemy" type="text" value={this.state.enemy} onChange={(ev) => this.handleChange(ev)}></input>
+                <br />
+                <label>Image:</label>
+                <input name="image" type="text" value={this.state.image} onChange={(ev) => this.handleChange(ev)}></input>
+                <input type="submit" className="button"></input>
+              </form>
+          </div>
+        </div>
       </Fragment>
     )
   }

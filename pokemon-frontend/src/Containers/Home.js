@@ -62,14 +62,21 @@ class Home extends Component {
         </div>
       );
     } else if (this.state.selected === "team") {
-      return <Team trainersPokemon={this.state.trainersPokemon} />;
+      return (
+        <div className="container">
+          <div className="row justify-content-center align-items-center first-home-box">
+            <Team trainersPokemon={this.state.trainersPokemon} />
+          </div>
+        </div>
+      )
     } else {
       return (
-        <Trainer
-          setTrainer={trainer => this.props.setTrainer(trainer)}
-          trainer={this.props.trainer}
-        />
-      );
+        <div className="container">
+          <div className="row justify-content-center align-items-center first-home-box">
+            <Trainer setTrainer={trainer => this.props.setTrainer(trainer)} trainer={this.props.trainer}/>
+          </div>
+        </div>
+      )
     }
   };
 
@@ -85,13 +92,6 @@ class Home extends Component {
         <h4 className="row justify-content-center align-items-center first-home-box">
           Welcome {this.state.trainer.name} from {this.state.trainer.hometown}!
         </h4>
-        <div className="row justify-content-center align-items-center">
-          <img
-            className="home-trainer-image"
-            src={this.state.trainer.image}
-            alt=""
-          />
-        </div>
         <div className="row">
           <div className="col-8">
             <div className="row">{this.displayContent()}</div>
