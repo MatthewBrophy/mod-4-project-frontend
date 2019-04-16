@@ -58,7 +58,7 @@ class Home extends Component {
     } else if (this.state.selected === "team") {
       return <Team trainersPokemon={this.state.trainersPokemon} />;
     } else {
-      return <Trainer trainer={this.props.trainer} />;
+      return <Trainer setTrainer={this.props.setTrainer} trainer={this.props.trainer} />;
     }
   };
 

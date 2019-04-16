@@ -22,6 +22,7 @@ class Trainer extends Component {
   }
 
   updateTrainer = (ev) => {
+    ev.preventDefault()
     console.log(this.props.trainer.id)
     let url = `http://localhost:3000/api/v1/trainers/${this.props.trainer.id}`
     //console.log(ev.target.elements['age'].value)
@@ -31,12 +32,17 @@ class Trainer extends Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
+        id: this.props.trainer.id,
         age: ev.target.elements['age'].value,
         enemy: ev.target.elements['enemy'].value,
-        image: ev.target.elements['image'].value
+        image: ev.target.elements['image'].value,
+        hometown: ev.target.elements['hometown'].value
       })
     })
     .then(res => console.log(res.status))
+    .then(updatedTrainer => {
+      this.props.setTrainer(updatedTrainer)
+    })
     this.setState({display: "none"})
 
   }

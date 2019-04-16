@@ -84,6 +84,7 @@ class App extends Component {
                   <Home
                     trainer={this.state.trainer}
                     trainersPokemon={this.state.trainersPokemon}
+                    setTrainer={this.setTrainer}
                   />
                 )}
               />
