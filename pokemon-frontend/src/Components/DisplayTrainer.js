@@ -14,6 +14,8 @@ class EditTrainer extends Component {
           <p>You're enemy is {this.props.trainer.enemy} :(</p>
           <img src={this.props.trainer.image} alt="trainer" />
         </div>
+        <button onClick={() => this.props.editClick()}>edit trainer</button>
+        <button onClick={() => this.props.deleteTrainer()}>delete trainer</button>
       </Fragment>
     );
   }

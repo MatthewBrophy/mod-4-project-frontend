@@ -55,7 +55,7 @@ class Trainer extends Component {
         />
       );
     } else if (this.state.display === "show") {
-      return <DisplayTrainer trainer={this.props.trainer} />;
+      return <DisplayTrainer editClick={this.editClick} deleteTrainer={this.deleteTrainer} trainer={this.props.trainer} />;
     } else if (this.state.display === "delete") {
       return <Redirect to="/" />;
     }
@@ -65,8 +65,6 @@ class Trainer extends Component {
     return (
       <Fragment>
         {this.displayTrainer()}
-        <button onClick={() => this.editClick()}>edit trainer</button>
-        <button onClick={() => this.deleteTrainer()}>delete trainer</button>
       </Fragment>
     );
   }
