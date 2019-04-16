@@ -25,18 +25,18 @@ class Home extends Component {
       .then(pokemon => this.setState({ pokedex: pokemon }));
   };
 
-  getPokemon = (pokemon) => {
-    let pokemonId = pokemon.pokemon_id
-    let url = `http://localhost:3000/api/v1/pokemons/${pokemonId}`
+  getPokemon = pokemon => {
+    let pokemonId = pokemon.pokemon_id;
+    let url = `http://localhost:3000/api/v1/pokemons/${pokemonId}`;
     fetch(url)
-    .then(data => data.json())
-    .then(foundPokemon => {
-      //console.log("fetched pokemon", foundPokemon)
-      this.setState((prevState) => ({
-        trainersPokemon: [foundPokemon, ...prevState.trainersPokemon]
-      }));
-    })
-  }
+      .then(data => data.json())
+      .then(foundPokemon => {
+        //console.log("fetched pokemon", foundPokemon)
+        this.setState(prevState => ({
+          trainersPokemon: [foundPokemon, ...prevState.trainersPokemon]
+        }));
+      });
+  };
 
   getTeam = () => {
     let url = `http://localhost:3000/api/v1/teams/find/${
@@ -47,14 +47,20 @@ class Home extends Component {
       .then(team => {
         //console.log(team)
         team.forEach(pokemon => {
-          this.getPokemon(pokemon)
-        })
+          this.getPokemon(pokemon);
+        });
       });
   };
 
   displayContent = () => {
     if (this.state.selected === "pokedex") {
-      return <Pokedex pokedex={this.state.pokedex} />;
+      return (
+        <div className="container">
+          <div className="row justify-content-center align-items-center first-home-box">
+            <Pokedex pokedex={this.state.pokedex} />
+          </div>
+        </div>
+      );
     } else if (this.state.selected === "team") {
       return <Team trainersPokemon={this.state.trainersPokemon} />;
     } else {
@@ -76,9 +82,13 @@ class Home extends Component {
             Welcome {this.state.trainer.name} from {this.state.trainer.hometown}
             !
           </h4>
-          {this.displayContent()}
+          <div className="container">
+            <div className="row">{this.displayContent()}</div>
+          </div>
           <br />
-          <PokedexButtons handleClick={this.handleClick} />
+          <div className="row">
+            <PokedexButtons handleClick={this.handleClick} />
+          </div>
         </div>
       </div>
     );
