@@ -67,10 +67,10 @@ class SignUp extends Component {
       <div>
         <div className="container login-sign-up-margin">
           <div className="row justify-content-center align-items-center">
-            <div className="row justify-content-center">
+            <div className="col-5 textBox">
               <form
                 onSubmit={ev => this.submitForm(ev)}
-                className="form-horizontal text-right col-12"
+                className="form-horizontal text-right"
               >
                 <label>Name:</label>
                 <input
@@ -112,12 +112,12 @@ class SignUp extends Component {
               </form>
             </div>
             <br />
-            <div className="col-4 sign-up-image-container">
+            <div className="col-3 sign-up-image-container">
               <img className="sign-up-image" src={Ash} alt="" />
             </div>
           </div>
           <div className="row justify-content-center align-items-center">
-            <div className="col-lg-6 textBox">
+            <div className="col-8 textBox">
               <p>Tell me about yourself!</p>
             </div>
           </div>
