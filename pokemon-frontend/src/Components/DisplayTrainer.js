@@ -11,12 +11,23 @@ class EditTrainer extends Component {
               <p>You're enemy is {this.props.trainer.enemy} :(</p>
             </div>
             <div className="col-3">
-              <img src={this.props.trainer.image} alt="trainer" />
+              <img
+                src={this.props.trainer.image}
+                alt="trainer"
+                className="trainer-image"
+              />
             </div>
           </div>
           <div className="row col-12 justify-content-center align-items-center">
-            <button className="button" onClick={() => this.props.editClick()}>edit trainer</button>
-            <button className="button" onClick={() => this.props.deleteTrainer()}>delete trainer</button>
+            <button className="button" onClick={() => this.props.editClick()}>
+              edit trainer
+            </button>
+            <button
+              className="button"
+              onClick={() => this.props.deleteTrainer()}
+            >
+              delete trainer
+            </button>
           </div>
         </div>
       </Fragment>

@@ -10,7 +10,7 @@ class Pokedex extends Component {
             <h1>All Pokemon!</h1>
           </div>
         </div>
-        <div className="row col-8" id="pokedex">
+        <div className="row col-6" id="pokedex">
           {this.props.pokedex.map(pokemon => (
             <Pokemon key={pokemon.id} pokemon={pokemon} />
           ))}

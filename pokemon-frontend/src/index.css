@@ -54,13 +54,11 @@ code {
 
 .trainer-image {
   width: 150px;
-  height: 150px;
-  margin-left: 150px;
-  padding: 10px;
+  max-height: 250px;
 }
 
 .first-home-box {
-  margin-top: 10px;
+  margin-top: 50px;
 }
 
 .choose-submit-button {
@@ -86,13 +84,13 @@ code {
 
 .first-button {
   width: 150px;
-  margin: 75px 25px 25px 25px;
+  margin: 100px 25px 25px 25px;
   border-radius: 10px;
 }
 
 .landing-page-image {
   width: 1000px;
-  margin: 50px 50px 50px 50px;
+  margin: 50px 50px 0px 50px;
 }
 
 .home-trainer-image {
@@ -117,8 +115,14 @@ code {
 .textBox {
   padding: 30px;
   border: 3px solid white;
-  box-shadow: 0 3px 0 3px black,
-              inset 0 3px 0 1px black,
-              0 0 0 3px black,
-              inset 0 0 0 3px black;
+  box-shadow: 0 3px 0 3px black, inset 0 3px 0 1px black, 0 0 0 3px black,
+    inset 0 0 0 3px black;
+}
+
+.pokedex-background {
+  background-image: url(./images/Try4.png);
+}
+
+.pokedex-display {
+  height: 800px;
 }

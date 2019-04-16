@@ -3,6 +3,7 @@ import Pokedex from "../Components/Pokedex";
 import Trainer from "../Components/Trainer";
 import Team from "../Components/Team";
 import PokedexButtons from "../Components/PokedexButtons";
+import PokedexImage from "../images/pokedex_dribbble-01.png";
 
 const AllPokemonURL = "http://localhost:3000/api/v1/pokemons";
 
@@ -55,7 +56,7 @@ class Home extends Component {
   displayContent = () => {
     if (this.state.selected === "pokedex") {
       return (
-        <div className="container">
+        <div className="container pokedex-display">
           <div className="row justify-content-center align-items-center first-home-box">
             <Pokedex pokedex={this.state.pokedex} />/
           </div>
@@ -63,20 +64,23 @@ class Home extends Component {
       );
     } else if (this.state.selected === "team") {
       return (
-        <div className="container">
+        <div className="container pokedex-display">
           <div className="row justify-content-center align-items-center first-home-box">
             <Team trainersPokemon={this.state.trainersPokemon} />
           </div>
         </div>
-      )
+      );
     } else {
       return (
-        <div className="container">
+        <div className="container pokedex-display">
           <div className="row justify-content-center align-items-center first-home-box">
-            <Trainer setTrainer={trainer => this.props.setTrainer(trainer)} trainer={this.props.trainer}/>
+            <Trainer
+              setTrainer={trainer => this.props.setTrainer(trainer)}
+              trainer={this.props.trainer}
+            />
           </div>
         </div>
-      )
+      );
     }
   };
 
@@ -88,16 +92,18 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="container ">
-        <h4 className="row justify-content-center align-items-center first-home-box">
+      <div className="container">
+        <h2 className="row justify-content-center align-items-center first-home-box">
           Welcome {this.state.trainer.name} from {this.state.trainer.hometown}!
-        </h4>
-        <div className="row">
-          <div className="col-8">
-            <div className="row">{this.displayContent()}</div>
-          </div>
-          <div className="col-4 justify-content-center align-items-center">
-            <PokedexButtons handleClick={this.handleClick} />
+        </h2>
+        <div className="pokedex-background">
+          <div className="row">
+            <div className="col-8">
+              <div className="row">{this.displayContent()}</div>
+            </div>
+            <div className="col-4 justify-content-center align-items-center pokedex-right">
+              <PokedexButtons handleClick={this.handleClick} />
+            </div>
           </div>
         </div>
       </div>

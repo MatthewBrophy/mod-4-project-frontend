@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import LandingPageImage from "../../src/images/maxresdefault.jpg";
+import LandingPageImage from "../../src/images/CoverImage.jpg";
 import { Link } from "react-router-dom";
 
 class LandingPage extends Component {
@@ -15,11 +15,11 @@ class LandingPage extends Component {
 
         <div className="row">
           <Link to="./sign-up" className="signUp-button">
-            Sign Up
+            <button className="button"> Sign Up</button>
           </Link>
 
           <Link to="./login" className="login-button">
-            Log In
+            <button className="button"> Log In </button>
           </Link>
         </div>
       </div>
