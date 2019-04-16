@@ -99,3 +99,17 @@ code {
   width: 100px;
   margin-bottom: 100px;
 }
+
+.sign-up-image {
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-up-image-container {
+  justify-content: center;
+  align-items: center;
+}
+
+.login-sign-up-margin {
+  margin-top: 150px;
+}
