@@ -55,7 +55,8 @@ class App extends Component {
       },
       body: JSON.stringify({
         trainer_id: this.state.trainer.id,
-        pokemon_id: pokemon.id
+        pokemon_id: pokemon.id,
+        nickname: pokemon.nickname
       })
     })
       .then(res => res.json())
