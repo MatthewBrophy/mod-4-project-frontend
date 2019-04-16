@@ -8,6 +8,7 @@ class ChooseStarter extends Component {
     this.state = {
       selectedPokemon: {},
       redirect: false,
+      nickname: "none",
       starters: [
         {
           back_img:
@@ -45,12 +46,21 @@ class ChooseStarter extends Component {
 
   submitForm = ev => {
     ev.preventDefault();
+    this.state.selectedPokemon.nickname = this.state.nickname;
+    console.log(this.state.selectedPokemon)
     this.props.selectStarter(this.state.selectedPokemon);
   };
 
   handleChange = ev => {
     this.setState({
       selectedPokemon: this.state.starters[ev.target.value]
+    });
+  };
+
+  handleNickname = ev => {
+    console.log(ev.target.value)
+    this.setState({
+      nickname: ev.target.value
     });
   };
 
@@ -105,6 +115,10 @@ class ChooseStarter extends Component {
                 type="radio"
                 value="2"
               />
+            </div>
+            <div className="row">
+              <h2>Give Your pokemon a nickname!</h2>
+              <input name="nickname"  type="text" onChange={(ev) => this.handleNickname(ev)}></input>
             </div>
 
             <input type="submit" className="choose-submit-button" />

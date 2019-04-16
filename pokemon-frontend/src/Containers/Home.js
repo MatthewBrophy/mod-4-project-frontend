@@ -1,30 +1,23 @@
 import React, { Component } from "react";
 import Pokedex from "../Components/Pokedex";
 import Trainer from "../Components/Trainer";
+import Catch from "./Catch";
 import Team from "../Components/Team";
+import { Redirect } from "react-router-dom";
 import PokedexButtons from "../Components/PokedexButtons";
 import PokedexImage from "../images/pokedex_dribbble-01.png";
-
-const AllPokemonURL = "http://localhost:3000/api/v1/pokemons";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokedex: [],
+      pokedex: this.props.pokedex,
       trainersPokemon: [],
       trainer: this.props.trainer,
       selected: "pokedex"
     };
-    this.populatePokedex();
     this.getTeam();
   }
-
-  populatePokedex = () => {
-    fetch(AllPokemonURL)
-      .then(response => response.json())
-      .then(pokemon => this.setState({ pokedex: pokemon }));
-  };
 
   getPokemon = pokemon => {
     let pokemonId = pokemon.pokemon_id;
@@ -70,7 +63,7 @@ class Home extends Component {
           </div>
         </div>
       );
-    } else {
+    } else if (this.state.selected === "trainer") {
       return (
         <div className="container pokedex-display">
           <div className="row justify-content-center align-items-center first-home-box">
@@ -81,6 +74,8 @@ class Home extends Component {
           </div>
         </div>
       );
+    } else {
+      return <Redirect to="/catch" />;
     }
   };
 
@@ -105,6 +100,14 @@ class Home extends Component {
               <PokedexButtons handleClick={this.handleClick} />
             </div>
           </div>
+        </div>
+        <div className="row">
+          <button
+            className="button"
+            onClick={() => this.setState({ selected: "catch" })}
+          >
+            Catch 'em All
+          </button>
         </div>
       </div>
     );
