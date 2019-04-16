@@ -10,7 +10,7 @@ class LandingPage extends Component {
         <img
           src={LandingPageImage}
           alt="Landing Page Image"
-          className="img-fluid"
+          className="img-fluid landing-page-image"
         />
 
         <div className="row">

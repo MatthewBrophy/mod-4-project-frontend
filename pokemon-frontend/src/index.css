@@ -89,3 +89,13 @@ code {
   margin: 75px 25px 25px 25px;
   border-radius: 10px;
 }
+
+.landing-page-image {
+  width: 1000px;
+  margin: 50px 50px 50px 50px;
+}
+
+.home-trainer-image {
+  width: 100px;
+  margin-bottom: 100px;
+}

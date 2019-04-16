@@ -11,26 +11,25 @@ class Login extends Component {
       name: "",
       trainer: {},
       status: 0
-    }
+    };
   }
 
   getTrainer = () => {
     let url = `http://localhost:3000/api/v1/trainers/name/${this.state.name}`;
     fetch(url)
       .then(res => {
-        this.setState({ status: res.status })
-        if (res.status !== 200){
+        this.setState({ status: res.status });
+        if (res.status !== 200) {
           //console.log("bad")
-          alert("Username does not exist!")
-
+          alert("Username does not exist!");
         } else {
-        return res.json()
+          return res.json();
         }
       })
       .then(
         foundTrainer => (
           //console.log(foundTrainer),
-          this.setState({ trainer: foundTrainer}),
+          this.setState({ trainer: foundTrainer }),
           this.props.setTrainer(foundTrainer)
         )
       );
