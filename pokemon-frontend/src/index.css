@@ -1,11 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Orbitron");
+
 body {
   margin: 0;
   padding: 0;
-  font-family: "Thintel", sans-serif;
+  font-family: "Orbitron", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
-  color: white;
+  background-color: rgb(250, 248, 250);
+  color: black;
 }
 
 code {
@@ -42,11 +44,10 @@ code {
   height: 200px;
   margin: 10px;
   padding: 5px;
-  border: 1px solid red;
 }
 
 #pokedex {
-  height: 240px;
+  height: 260px;
   overflow: auto;
   flex-wrap: nowrap;
 }
@@ -60,4 +61,19 @@ code {
 
 .first-home-box {
   margin-top: 10px;
+}
+
+.choose-submit-button {
+  margin-left: 30px;
+}
+
+.choose-pokemon-box {
+  margin: 50px;
+  text-align: center;
+  display: inline-block;
+  text-align: center;
+}
+
+.choose-pokemon-pic {
+  width: 200px;
 }

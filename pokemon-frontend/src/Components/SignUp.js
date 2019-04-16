@@ -34,18 +34,17 @@ class SignUp extends Component {
       })
     })
       .then(res => {
-        this.setState({ status: res.status })
-        if (res.status !== 200){
+        this.setState({ status: res.status });
+        if (res.status !== 200) {
           //console.log("bad")
-          alert("Username already exists!")
-
+          alert("Username already exists!");
         } else {
-        return res.json()
-      }
+          return res.json();
+        }
       })
       .then(
         newTrainer => (
-          this.setState({ trainer: newTrainer}),
+          this.setState({ trainer: newTrainer }),
           this.props.setTrainer(newTrainer)
         )
       );
@@ -66,7 +65,7 @@ class SignUp extends Component {
     return this.state.status === 200 ? (
       <Redirect to="/choose-starter" />
     ) : (
-      <div>
+      <div className="background-test">
         <div className="row justify-content-center align-items-center">
           <label>Tell me about yourself!</label>
         </div>

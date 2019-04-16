@@ -58,43 +58,60 @@ class ChooseStarter extends Component {
 
   render() {
     return this.props.trainersPokemon.length > 0 ? (
-      <Redirect
-        to="/home"
-      />
+      <Redirect to="/home" />
     ) : (
-      <div>
-        <form onSubmit={ev => this.submitForm(ev)}>
-          <label>Name:</label>
-          <div>
-            <img src={this.state.starters[0].front_img} />
-            <input
-              onChange={ev => this.handleChange(ev)}
-              name="starters"
-              type="radio"
-              value="0"
-            />
-          </div>
-          <div>
-            <img src={this.state.starters[1].front_img} />
-            <input
-              onChange={ev => this.handleChange(ev)}
-              name="starters"
-              type="radio"
-              value="1"
-            />
-          </div>
-          <div>
-            <img src={this.state.starters[2].front_img} />
-            <input
-              onChange={ev => this.handleChange(ev)}
-              name="starters"
-              type="radio"
-              value="2"
-            />
-          </div>
+      <div className="container">
+        <div className="row justify-content-center align-items-center col-14">
+          <form
+            onSubmit={ev => this.submitForm(ev)}
+            className="form-check-inline"
+          >
+            <div className="choose-pokemon-box">
+              <h4>{this.state.starters[0].name}</h4>
+              <img
+                className="choose-pokemon-pic"
+                src={this.state.starters[0].front_img}
+                alt={this.state.starters[0].name}
+              />
+              <input
+                onChange={ev => this.handleChange(ev)}
+                name="starters"
+                type="radio"
+                value="0"
+              />
+            </div>
+            <div className="choose-pokemon-box">
+              <h4>{this.state.starters[1].name}</h4>
+              <img
+                className="choose-pokemon-pic"
+                src={this.state.starters[1].front_img}
+                alt={this.state.starters[1].name}
+              />
+              <input
+                onChange={ev => this.handleChange(ev)}
+                name="starters"
+                type="radio"
+                value="1"
+              />
+            </div>
+            <div className="choose-pokemon-box">
+              <h4>{this.state.starters[2].name}</h4>
+              <img
+                className="choose-pokemon-pic"
+                src={this.state.starters[2].front_img}
+                alt={this.state.starters[2].name}
+              />
+              <input
+                onChange={ev => this.handleChange(ev)}
+                name="starters"
+                type="radio"
+                value="2"
+              />
+            </div>
 
-          <input type="submit" />
-        </form>
+            <input type="submit" className="choose-submit-button" />
+          </form>
+        </div>
       </div>
     );
   }
