@@ -72,7 +72,9 @@ class Login extends Component {
           </div>
         </div>
         <div className="row justify-content-center align-items-center">
-          <label>Tell me about yourself!</label>
+          <div className="col-lg-6 textBox">
+          <p>First, What is your name?</p>
+          </div>
         </div>
       </div>
     );

@@ -118,7 +118,9 @@ class SignUp extends Component {
             </div>
           </div>
           <div className="row justify-content-center align-items-center">
-            <label>Tell me about yourself!</label>
+            <div className="col-lg-6 textBox">
+              <p>Tell me about yourself!</p>
+            </div>
           </div>
         </div>
       </div>

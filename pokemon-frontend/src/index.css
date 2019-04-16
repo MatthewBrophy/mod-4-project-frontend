@@ -113,3 +113,12 @@ code {
 .login-sign-up-margin {
   margin-top: 150px;
 }
+
+.textBox {
+  padding: 30px;
+  border: 2px solid white;
+  box-shadow: 0 2px 0 2px black,
+              inset 0 2px 0 2px black,
+              0 0 0 2px black,
+              inset 0 0 0 2px black;
+}
