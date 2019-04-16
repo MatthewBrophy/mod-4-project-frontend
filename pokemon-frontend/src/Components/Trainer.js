@@ -8,7 +8,7 @@ class Trainer extends Component {
     super(props)
 
     this.state = {
-      display: "none"
+      display: "show"
     }
   }
 
@@ -25,6 +25,7 @@ class Trainer extends Component {
     fetch(url, {
       method: "DELETE"
     })
+    .then(this.setState({display: 'delete'}))
 
   }
 
@@ -56,8 +57,10 @@ class Trainer extends Component {
   displayTrainer = () => {
     if (this.state.display === 'edit') {
       return <EditTrainer trainer={this.props.trainer} updateTrainer={this.updateTrainer}/>
-    } else {
+    } else if (this.state.display === 'show'){
       return <DisplayTrainer trainer={this.props.trainer}/>
+    } else if (this.state.display === 'delete'){
+      return <Redirect to="/" />
     }
   }
 
