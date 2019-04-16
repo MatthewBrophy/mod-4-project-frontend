@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import Ash from "../images/ash.png";
-import Home from "../Containers/Home";
 
 class ChooseStarter extends Component {
   constructor(props) {

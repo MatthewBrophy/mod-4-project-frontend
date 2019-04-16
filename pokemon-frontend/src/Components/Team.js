@@ -2,12 +2,6 @@ import React, { Component, Fragment } from "react";
 import Pokemon from "../Components/Pokemon";
 
 class Team extends Component {
-  constructor(props){
-    super(props)
-
-    console.log(props)
-  }
-
   render() {
     return (
       <Fragment>

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import Ash from "../images/ash.png";
-import Home from "../Containers/Home";
 
 class Login extends Component {
   constructor(props) {
@@ -64,11 +63,11 @@ class Login extends Component {
                 type="text"
               />
               <br />
-              <input type="submit" className="button"/>
+              <input type="submit" className="button" />
             </form>
           </div>
           <div className="col-sm-4">
-            <img src={Ash} />
+            <img src={Ash} alt="ash" />
           </div>
         </div>
         <div className="row justify-content-center align-items-center">
