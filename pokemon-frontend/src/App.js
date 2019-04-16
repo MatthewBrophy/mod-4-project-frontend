@@ -11,13 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      trainer: {
-        name: "Matt",
-        hometown: "Pallet Town",
-        age: 35,
-        enemy: "Kevin",
-        image: Pikachu
-      },
+      trainer: {},
       trainersPokemon: []
     };
   }
@@ -84,7 +78,7 @@ class App extends Component {
                   <Home
                     trainer={this.state.trainer}
                     trainersPokemon={this.state.trainersPokemon}
-                    setTrainer={this.setTrainer}
+                    setTrainer={(trainer) => this.setTrainer(trainer)}
                   />
                 )}
               />

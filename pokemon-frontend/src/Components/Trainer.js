@@ -5,9 +5,7 @@ import DisplayTrainer from './DisplayTrainer'
 class Trainer extends Component {
   constructor(props){
     super(props)
-
-    console.log(props)
-
+    
     this.state = {
       display: "none"
     }
@@ -39,7 +37,7 @@ class Trainer extends Component {
         hometown: ev.target.elements['hometown'].value
       })
     })
-    .then(res => console.log(res.status))
+    .then(res => res.json())
     .then(updatedTrainer => {
       this.props.setTrainer(updatedTrainer)
     })
