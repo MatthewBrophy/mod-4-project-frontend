@@ -1,53 +1,61 @@
 import React, { Component, Fragment } from "react";
+import EditTrainer from './EditTrainer'
+import DisplayTrainer from './DisplayTrainer'
 
 class Trainer extends Component {
   constructor(props){
     super(props)
 
     console.log(props)
+
+    this.state = {
+      display: "none"
+    }
   }
 
   editClick = () => {
-    console.log("edit trainer")
+    this.setState({display: "edit"})
   }
 
   deleteClick = () => {
     console.log("delete trainer")
   }
 
-  handleChange = (ev) => {
-    console.log(ev.target.name)
+  updateTrainer = (ev) => {
+    console.log(this.props.trainer.id)
+    let url = `http://localhost:3000/api/v1/trainers/${this.props.trainer.id}`
+    //console.log(ev.target.elements['age'].value)
+    fetch(url, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        age: ev.target.elements['age'].value,
+        enemy: ev.target.elements['enemy'].value,
+        image: ev.target.elements['image'].value
+      })
+    })
+    .then(res => console.log(res.status))
+    this.setState({display: "none"})
+
   }
 
-  handleSubmit = (ev) => {
-    ev.preventDefault();
-    console.log("change trainer info")
+  displayTrainer = () => {
+    if (this.state.display === 'edit') {
+      return <EditTrainer trainer={this.props.trainer} updateTrainer={this.updateTrainer}/>
+    } else {
+      return <DisplayTrainer trainer={this.props.trainer}/>
+    }
   }
 
 
   render(){
     return(
       <Fragment>
-        <br></br>
-        <h1>Trainer!</h1>
-        <div className="row col-8" >
-            <p>You are {this.props.trainer.age} years old</p>
-            <p>You're enemy is {this.props.trainer.enemy} :(</p>
-            <img src={this.props.trainer.image} alt='trainer' />
-        </div>
+        {this.displayTrainer()}
         <button onClick={() => this.editClick()}>edit trainer</button>
         <button onClick={() => this.deleteClick()}>delete trainer</button>
-        <div>
-          <form onSubmit={(ev) => this.handleSubmit(ev)}>
-            <label>Age:</label>
-            <input name="age" type="text" onChange={(ev) => this.handleChange(ev)}></input>
-            <label>Enemy:</label>
-            <input name="enemy" type="text" onChange={(ev) => this.handleChange(ev)}></input>
-            <label>Image:</label>
-            <input name="image" type="text" onChange={(ev) => this.handleChange(ev)}></input>
-            <input type="submit" onChange={(ev) => this.handleChange(ev)}></input>
-          </form>
-        </div>
       </Fragment>
     )
   }
