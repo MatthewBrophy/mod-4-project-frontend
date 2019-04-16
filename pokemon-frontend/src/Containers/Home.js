@@ -6,26 +6,17 @@ import Team from "../Components/Team";
 import { Redirect } from "react-router-dom";
 import PokedexButtons from "../Components/PokedexButtons";
 
-const AllPokemonURL = "http://localhost:3000/api/v1/pokemons";
-
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokedex: [],
+      pokedex: this.props.pokedex,
       trainersPokemon: [],
       trainer: this.props.trainer,
       selected: "pokedex"
     };
-    this.populatePokedex();
     this.getTeam();
   }
-
-  populatePokedex = () => {
-    fetch(AllPokemonURL)
-      .then(response => response.json())
-      .then(pokemon => this.setState({ pokedex: pokemon }));
-  };
 
   getPokemon = pokemon => {
     let pokemonId = pokemon.pokemon_id;
