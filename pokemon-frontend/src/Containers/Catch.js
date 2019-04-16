@@ -7,7 +7,7 @@ class Catch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokedex: [],
+      pokedex: this.props.pokedex,
       trainer: this.props.trainer,
       wildPokemon: this.getRandomPokemon(),
       attempts: 3,
@@ -16,18 +16,9 @@ class Catch extends Component {
   }
 
   getRandomPokemon = () => {
-    console.log("get rand poke")
-    let pokemon = {
-      back_img:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/4.png",
-      front_img:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-      hp: 39,
-      id: 4,
-      name: "charmander",
-      weight: 85
-    }
-    return pokemon
+    let rand = Math.floor(Math.random() * 151)
+    let randPoke = this.props.pokedex[rand]
+    return randPoke
   }
 
   throwPokeball = ev => {
