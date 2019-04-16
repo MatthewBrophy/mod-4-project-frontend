@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Ash from "../images/ash.png";
-import Home from "../Containers/Home";
 import { Redirect } from "react-router-dom";
 
 class SignUp extends Component {
@@ -114,7 +113,7 @@ class SignUp extends Component {
             </div>
             <br />
             <div className="col-4 sign-up-image-container">
-              <img className="sign-up-image" src={Ash} />
+              <img className="sign-up-image" src={Ash} alt="" />
             </div>
           </div>
           <div className="row justify-content-center align-items-center">

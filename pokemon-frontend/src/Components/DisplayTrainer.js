@@ -1,10 +1,6 @@
 import React, { Component, Fragment } from "react";
 
 class EditTrainer extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <Fragment>
@@ -15,7 +11,9 @@ class EditTrainer extends Component {
           <img src={this.props.trainer.image} alt="trainer" />
         </div>
         <button onClick={() => this.props.editClick()}>edit trainer</button>
-        <button onClick={() => this.props.deleteTrainer()}>delete trainer</button>
+        <button onClick={() => this.props.deleteTrainer()}>
+          delete trainer
+        </button>
       </Fragment>
     );
   }

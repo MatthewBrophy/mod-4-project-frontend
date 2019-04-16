@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import LandingPageImage from "../../src/images/maxresdefault.jpg";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class LandingPage extends Component {
   render() {
@@ -9,7 +9,7 @@ class LandingPage extends Component {
       <div className="row h-100 justify-content-center align-items-center">
         <img
           src={LandingPageImage}
-          alt="Landing Page Image"
+          alt="Landing Page"
           className="img-fluid landing-page-image"
         />
 
