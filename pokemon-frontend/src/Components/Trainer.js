@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from "react";
+import { Redirect } from "react-router-dom";
 import EditTrainer from './EditTrainer'
 import DisplayTrainer from './DisplayTrainer'
 
 class Trainer extends Component {
   constructor(props){
     super(props)
-    
+
     this.state = {
       display: "none"
     }
@@ -19,11 +20,18 @@ class Trainer extends Component {
     console.log("delete trainer")
   }
 
+  deleteTrainer = () => {
+    let url = `http://localhost:3000/api/v1/trainers/${this.props.trainer.id}`
+    fetch(url, {
+      method: "DELETE"
+    })
+
+  }
+
   updateTrainer = (ev) => {
     ev.preventDefault()
     console.log(this.props.trainer.id)
     let url = `http://localhost:3000/api/v1/trainers/${this.props.trainer.id}`
-    //console.log(ev.target.elements['age'].value)
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -59,7 +67,7 @@ class Trainer extends Component {
       <Fragment>
         {this.displayTrainer()}
         <button onClick={() => this.editClick()}>edit trainer</button>
-        <button onClick={() => this.deleteClick()}>delete trainer</button>
+        <button onClick={() => this.deleteTrainer()}>delete trainer</button>
       </Fragment>
     )
   }
