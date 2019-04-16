@@ -57,14 +57,14 @@ class Home extends Component {
       return (
         <div className="container">
           <div className="row justify-content-center align-items-center first-home-box">
-            <Pokedex pokedex={this.state.pokedex} />
+            <Pokedex pokedex={this.state.pokedex} />/
           </div>
         </div>
       );
     } else if (this.state.selected === "team") {
       return <Team trainersPokemon={this.state.trainersPokemon} />;
     } else {
-      return <Trainer setTrainer={this.props.setTrainer} trainer={this.props.trainer} />;
+      return <Trainer trainer={this.props.trainer} />;
     }
   };
 
@@ -77,16 +77,14 @@ class Home extends Component {
   render() {
     return (
       <div className="container">
-        <div className=" row justify-content-center align-items-center first-home-box">
-          <h4 className="row justify-content-center align-items-center">
-            Welcome {this.state.trainer.name} from {this.state.trainer.hometown}
-            !
-          </h4>
-          <div className="container">
+        <h4 className="row justify-content-center align-items-center first-home-box">
+          Welcome {this.state.trainer.name} from {this.state.trainer.hometown}!
+        </h4>
+        <div className="row">
+          <div className="col-8">
             <div className="row">{this.displayContent()}</div>
           </div>
-          <br />
-          <div className="row">
+          <div className="col-4 justify-content-center align-items-center">
             <PokedexButtons handleClick={this.handleClick} />
           </div>
         </div>

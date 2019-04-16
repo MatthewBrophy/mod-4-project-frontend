@@ -77,3 +77,15 @@ code {
 .choose-pokemon-pic {
   width: 200px;
 }
+
+.button {
+  width: 150px;
+  margin: 25px;
+  border-radius: 10px;
+}
+
+.first-button {
+  width: 150px;
+  margin: 75px 25px 25px 25px;
+  border-radius: 10px;
+}
