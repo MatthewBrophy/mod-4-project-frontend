@@ -6,7 +6,7 @@ class ChooseStarter extends Component {
     super(props);
 
     this.state = {
-      selectedPokemon: {},
+      selectedPokemon: null,
       redirect: false,
       nickname: "none",
       starters: [
@@ -64,14 +64,30 @@ class ChooseStarter extends Component {
     });
   };
 
+  displayNickname = () => {
+    if (this.state.selectedPokemon !== null) {
+      return (
+        <div className="row">
+          <form onSubmit={ev => this.submitForm(ev)}>
+          <h2>Give Your pokemon a nickname!</h2>
+          <input name="nickname"  type="text" onChange={(ev) => this.handleNickname(ev)} />
+          <input type="submit" className="button" />
+          </form>
+        </div>
+      )
+    }
+  }
+
   render() {
     return this.props.trainersPokemon.length > 0 ? (
       <Redirect to="/home" />
     ) : (
-      <div className="container">
+      <div className="container login-sign-up-margin">
+        <div className="row justify-content-center align-items-center col-14">
+          <h1> Choose A Pokemon!</h1>
+        </div>
         <div className="row justify-content-center align-items-center col-14">
           <form
-            onSubmit={ev => this.submitForm(ev)}
             className="form-check-inline"
           >
             <div className="choose-pokemon-box">
@@ -115,15 +131,12 @@ class ChooseStarter extends Component {
                 type="radio"
                 value="2"
               />
-            </div>
-            <div className="row">
-              <h2>Give Your pokemon a nickname!</h2>
-              <input name="nickname"  type="text" onChange={(ev) => this.handleNickname(ev)}></input>
-            </div>
 
-            <input type="submit" className="choose-submit-button" />
+            </div>
           </form>
-        </div>
+            {this.displayNickname()}
+
+          </div>
       </div>
     );
   }

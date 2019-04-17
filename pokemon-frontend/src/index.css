@@ -241,8 +241,9 @@ code {
 }
 
 .trainer-info {
-  position: relative;
-  bottom: -280px;
+  position: absolute;
+  bottom: -200px;
+  float: right;
 }
 
 .battle-button {

@@ -14,17 +14,33 @@ class Catch extends Component {
       pokedex: this.props.pokedex,
       trainer: this.props.trainer,
       wildPokemon: this.getRandomPokemon(),
-      attempts: 3,
+      attempts: 0,
       inPokeball: false,
       caught: false
     };
     console.log(this.state)
   }
 
+  componentDidMount(){
+    this.getAttempts()
+  }
+
   getRandomPokemon = () => {
     let rand = Math.floor(Math.random() * 151)
     let randPoke = this.props.pokedex[rand]
     return randPoke
+  }
+
+  getAttempts = () => {
+    if (this.state.wildPokemon.hp < 50) {
+      this.setState({attempts: 4})
+    } else if (this.state.wildPokemon.hp < 85) {
+      this.setState({attempts: 3})
+    } else if (this.state.wildPokemon.hp < 110) {
+      this.setState({attempts: 1})
+    } else {
+      this.setState({attempts: 2})
+    }
   }
 
   throwPokeball = ev => {
@@ -35,12 +51,12 @@ class Catch extends Component {
       failChance = this.state.wildPokemon.hp
     }
     if ((this.state.attempts < 1) && (this.state.caught === false)){
-      alert("You ran out of pokeballs!")
+      alert(`${this.state.wildPokemon.name} ran away!`);
       this.setState((prevState) => ({
         attempts: prevState.attempts - 1
       }))
     } else if (this.state.caught === true){
-      alert("You've caugh't this pokemon already!")
+      alert("You've caught this pokemon already!")
     } else {
       this.setState({
         inPokeball: true, thrownOnce: true
@@ -118,7 +134,6 @@ class Catch extends Component {
           </div>
           <div className="col-3 trainer-info">
             <h2>{this.state.trainer.name}</h2>
-            <p>Has {this.state.attempts} attempts left! </p>
           </div>
         </div>
         <div className="row justify-content-center textBox">
