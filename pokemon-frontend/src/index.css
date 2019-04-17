@@ -259,3 +259,27 @@ code {
   background-color: rgb(232, 72, 72);
   color: white;
 }
+
+.edit-trainer-heading {
+  position: absolute;
+}
+
+.edit-trainer-form {
+  position: absolute;
+  top: 260px;
+  right: -5px;
+}
+
+.edit-submit-button {
+  position: absolute;
+  top: 190px;
+  right: 110px;
+  border-radius: 10px;
+  border: 5px solid rgb(77, 77, 77);
+}
+
+.edit-trainer-input {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 3px solid rgb(77, 77, 77);
+}
