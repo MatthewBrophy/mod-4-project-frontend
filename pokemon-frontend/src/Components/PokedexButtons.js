@@ -14,7 +14,7 @@ class Nav extends Component {
           </button>
           <br />
           <button
-            className="table button"
+            className="table pokedex-button"
             name="trainer"
             onClick={ev => this.props.handleClick(ev)}
           >
@@ -22,7 +22,7 @@ class Nav extends Component {
           </button>
           <br />
           <button
-            className="table button"
+            className="table pokedex-button"
             name="team"
             onClick={ev => this.props.handleClick(ev)}
           >

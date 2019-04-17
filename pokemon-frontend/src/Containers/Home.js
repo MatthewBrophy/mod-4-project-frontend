@@ -5,7 +5,6 @@ import Catch from "./Catch";
 import Team from "../Components/Team";
 import { Redirect } from "react-router-dom";
 import PokedexButtons from "../Components/PokedexButtons";
-import PokedexImage from "../images/pokedex_dribbble-01.png";
 
 class Home extends Component {
   constructor(props) {
