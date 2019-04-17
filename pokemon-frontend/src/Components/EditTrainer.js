@@ -8,7 +8,7 @@ class EditTrainer extends Component {
     this.state = {
       hometown: this.props.trainer.hometown,
       age: this.props.trainer.age,
-      enemy: this.props.trainer.enemy,
+      rival: this.props.trainer.rival,
       image: this.props.trainer.image
     }
   }
@@ -35,8 +35,8 @@ class EditTrainer extends Component {
                 <label>Age:</label>
                 <input name="age" type="text" value={this.state.age} onChange={(ev) => this.handleChange(ev)}></input>
                 <br />
-                <label>Enemy:</label>
-                <input name="enemy" type="text" value={this.state.enemy} onChange={(ev) => this.handleChange(ev)}></input>
+                <label>rival:</label>
+                <input name="rival" type="text" value={this.state.rival} onChange={(ev) => this.handleChange(ev)}></input>
                 <br />
                 <label>Image:</label>
                 <input name="image" type="text" value={this.state.image} onChange={(ev) => this.handleChange(ev)}></input>

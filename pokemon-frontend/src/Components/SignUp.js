@@ -11,7 +11,7 @@ class SignUp extends Component {
       hometown: "",
       age: 0,
       image: "",
-      enemy: "",
+      rival: "",
       trainer: {},
       status: 0
     };
@@ -28,7 +28,7 @@ class SignUp extends Component {
         name: this.state.name,
         hometown: this.state.hometown,
         age: this.state.age,
-        enemy: this.state.enemy,
+        rival: this.state.rival,
         image: this.state.image
       })
     })
@@ -93,10 +93,10 @@ class SignUp extends Component {
                   type="text"
                 />
                 <br />
-                <label>Enemy:</label>
+                <label>rival:</label>
                 <input
                   onChange={ev => this.handleChange(ev)}
-                  name="enemy"
+                  name="rival"
                   type="text"
                 />
                 <br />

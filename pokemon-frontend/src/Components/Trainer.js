@@ -34,7 +34,7 @@ class Trainer extends Component {
       body: JSON.stringify({
         id: this.props.trainer.id,
         age: ev.target.elements["age"].value,
-        enemy: ev.target.elements["enemy"].value,
+        rival: ev.target.elements["rival"].value,
         image: ev.target.elements["image"].value,
         hometown: ev.target.elements["hometown"].value
       })
