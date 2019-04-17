@@ -4,7 +4,6 @@ import Nickname from "../Components/Nickname";
 import { Redirect } from "react-router-dom";
 import Pending from "../images/pending_pokeball.gif";
 
-
 class Catch extends Component {
   constructor(props) {
     super(props);
