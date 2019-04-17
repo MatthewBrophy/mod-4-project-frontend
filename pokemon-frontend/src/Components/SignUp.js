@@ -35,7 +35,6 @@ class SignUp extends Component {
       .then(res => {
         this.setState({ status: res.status });
         if (res.status !== 200) {
-          //console.log("bad")
           alert("Username already exists!");
         } else {
           return res.json();

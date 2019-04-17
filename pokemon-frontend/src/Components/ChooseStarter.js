@@ -47,7 +47,7 @@ class ChooseStarter extends Component {
   submitForm = ev => {
     ev.preventDefault();
     this.state.selectedPokemon.nickname = this.state.nickname;
-    console.log(this.state.selectedPokemon)
+
     this.props.selectStarter(this.state.selectedPokemon);
   };
 
@@ -58,7 +58,6 @@ class ChooseStarter extends Component {
   };
 
   handleNickname = ev => {
-    console.log(ev.target.value)
     this.setState({
       nickname: ev.target.value
     });
@@ -69,14 +68,18 @@ class ChooseStarter extends Component {
       return (
         <div className="row">
           <form onSubmit={ev => this.submitForm(ev)}>
-          <h2>Give Your pokemon a nickname!</h2>
-          <input name="nickname"  type="text" onChange={(ev) => this.handleNickname(ev)} />
-          <input type="submit" className="button" />
+            <h2>Give Your pokemon a nickname!</h2>
+            <input
+              name="nickname"
+              type="text"
+              onChange={ev => this.handleNickname(ev)}
+            />
+            <input type="submit" className="button" />
           </form>
         </div>
-      )
+      );
     }
-  }
+  };
 
   render() {
     return this.props.trainersPokemon.length > 0 ? (
@@ -87,9 +90,7 @@ class ChooseStarter extends Component {
           <h1> Choose A Pokemon!</h1>
         </div>
         <div className="row justify-content-center align-items-center col-14">
-          <form
-            className="form-check-inline"
-          >
+          <form className="form-check-inline">
             <div className="choose-pokemon-box">
               <h4>{this.state.starters[0].name}</h4>
               <img
@@ -131,12 +132,10 @@ class ChooseStarter extends Component {
                 type="radio"
                 value="2"
               />
-
             </div>
           </form>
-            {this.displayNickname()}
-
-          </div>
+          {this.displayNickname()}
+        </div>
       </div>
     );
   }

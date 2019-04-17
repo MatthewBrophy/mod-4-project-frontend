@@ -6,7 +6,7 @@ import Login from "./Components/Login";
 import ChooseStarter from "./Components/ChooseStarter";
 import Home from "./Containers/Home";
 import Catch from "./Containers/Catch";
-import PokeMap from "./Components/Map";
+import PokeMap from "./Components/map";
 
 const AllPokemonURL = "http://localhost:3000/api/v1/pokemons";
 
@@ -62,10 +62,9 @@ class App extends Component {
     })
       .then(res => res.json())
       .then(newTeam => {
-        console.log(this.state);
-        this.setState((prevState) => ({
+        this.setState(prevState => ({
           trainersPokemon: [...prevState.trainersPokemon, pokemon]
-        }))
+        }));
       });
   };
 

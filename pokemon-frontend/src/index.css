@@ -217,11 +217,14 @@ code {
 
 .pokeball-IMG {
   height: 80px;
+  position: absolute;
 }
 
 .pokemon-battle-pic {
   width: 200px;
   position: absolute;
+  top: 30px;
+  left: 20px;
 }
 
 .pokemon-battle-slide {
@@ -233,7 +236,7 @@ code {
 
 @keyframes slideinPokemon {
   from {
-    margin-left: 100%;
+    margin-left: 300%;
   }
 
   to {
@@ -242,9 +245,15 @@ code {
 }
 
 .trainer-battle-IMG {
-  width: 200px;
-  animation-duration: 5s;
-  animation-name: slideinPokemon;
+  max-width: 200px;
+  max-height: 300px;
+  margin-bottom: 30px;
+}
+
+.trainer-battle-name {
+  position: absolute;
+  top: -380px;
+  right: 730px;
 }
 
 .trainer-info {
@@ -282,4 +291,18 @@ code {
   margin-bottom: 10px;
   border-radius: 10px;
   border: 3px solid rgb(77, 77, 77);
+}
+
+.wild-pokemon-name {
+  top: 180px;
+  right: -450px;
+}
+
+.wild-pokemon-hp {
+  top: 220px;
+  right: -450px;
+}
+
+.catch-margin {
+  margin-top: 200px;
 }

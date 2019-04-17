@@ -16,8 +16,6 @@ class Nav extends Component {
     } else if (ev.target.name === "team") {
       this.setState({ currentSelection: "Your Team" });
     }
-
-    console.log(this.state.currentSelection);
   };
 
   removeSelector = ev => {

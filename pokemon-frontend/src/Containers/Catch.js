@@ -18,130 +18,163 @@ class Catch extends Component {
       inPokeball: false,
       caught: false
     };
-    console.log(this.state)
   }
 
-  componentDidMount(){
-    this.getAttempts()
+  componentDidMount() {
+    this.getAttempts();
   }
 
   getRandomPokemon = () => {
-    let rand = Math.floor(Math.random() * 151)
-    let randPoke = this.props.pokedex[rand]
-    return randPoke
-  }
+    let rand = Math.floor(Math.random() * 151);
+    let randPoke = this.props.pokedex[rand];
+    return randPoke;
+  };
 
   getAttempts = () => {
     if (this.state.wildPokemon.hp < 50) {
-      this.setState({attempts: 4})
+      this.setState({ attempts: 4 });
     } else if (this.state.wildPokemon.hp < 85) {
-      this.setState({attempts: 3})
+      this.setState({ attempts: 3 });
     } else if (this.state.wildPokemon.hp < 110) {
-      this.setState({attempts: 1})
+      this.setState({ attempts: 1 });
     } else {
-      this.setState({attempts: 2})
+      this.setState({ attempts: 2 });
     }
-  }
+  };
 
   throwPokeball = ev => {
-    let failChance = 0
+    let failChance = 0;
     if (this.state.wildPokemon.hp < 100) {
-      failChance = this.state.wildPokemon.hp + 30
+      failChance = this.state.wildPokemon.hp + 30;
     } else {
-      failChance = this.state.wildPokemon.hp
+      failChance = this.state.wildPokemon.hp;
     }
-    if ((this.state.attempts < 1) && (this.state.caught === false)){
+    if (this.state.attempts < 1 && this.state.caught === false) {
       alert(`${this.state.wildPokemon.name} ran away!`);
-      this.setState((prevState) => ({
+      this.setState(prevState => ({
         attempts: prevState.attempts - 1
-      }))
-    } else if (this.state.caught === true){
-      alert("You've caught this pokemon already!")
+      }));
+    } else if (this.state.caught === true) {
+      alert("You've caught this pokemon already!");
     } else {
-      this.setState({
-        inPokeball: true, thrownOnce: true
-      }, this.waitToCatch(failChance))
+      this.setState(
+        {
+          inPokeball: true,
+          thrownOnce: true
+        },
+        this.waitToCatch(failChance)
+      );
     }
   };
 
   waitToCatch = failChance => {
-    console.log("hi")
-    setTimeout(() => this.tryCatch(failChance), Math.floor(Math.random() * 4000) + 500)
-
-  }
+    setTimeout(
+      () => this.tryCatch(failChance),
+      Math.floor(Math.random() * 4000) + 500
+    );
+  };
 
   tryCatch = failChance => {
-    console.log(this.state)
     let catchChance = Math.floor(Math.random() * 150);
     if (catchChance > failChance) {
-      this.setState((prevState) => ({
-        attempts: prevState.attempts - 1, caught: true
+      this.setState(prevState => ({
+        attempts: prevState.attempts - 1,
+        caught: true
       }));
     } else {
-      this.setState((prevState) => ({
-        attempts: prevState.attempts - 1, inPokeball: false
+      this.setState(prevState => ({
+        attempts: prevState.attempts - 1,
+        inPokeball: false
       }));
     }
-  }
+  };
 
   run = () => {
-    if (this.state.caught === true){
-      alert("Give your Pokemon a nickname first!")
+    if (this.state.caught === true) {
+      alert("Give your Pokemon a nickname first!");
     } else {
-      this.setState({selected: "run"})
+      this.setState({ selected: "run" });
     }
   };
 
   displayMessage = () => {
     if (this.state.caught === true) {
-      return <Nickname createTeam={this.props.createTeam} wildPokemon={this.state.wildPokemon}/>
+      return (
+        <Nickname
+          createTeam={this.props.createTeam}
+          wildPokemon={this.state.wildPokemon}
+        />
+      );
     } else {
-      return <p>A wild {this.state.wildPokemon.name} appeared! Try to catch the pokemon or run away!</p>
+      return (
+        <p>
+          A wild {this.state.wildPokemon.name} appeared! Try to catch the
+          pokemon or run away!
+        </p>
+      );
     }
-  }
+  };
 
   displayPokemon = () => {
     if (this.state.caught === true) {
-      return <img src={Pokeball} alt="pokeball" className="pokeball-IMG"/>
-    } else if (this.state.inPokeball === false){
-      return <img src={this.state.wildPokemon.front_img} alt={this.state.wildPokemon.name} className={(this.state.thrownOnce === false) ? "pokemon-battle-slide" : "pokemon-battle-pic"}/>
+      return <img src={Pokeball} alt="pokeball" className="pokeball-IMG" />;
+    } else if (this.state.inPokeball === false) {
+      return (
+        <img
+          src={this.state.wildPokemon.front_img}
+          alt={this.state.wildPokemon.name}
+          className={
+            this.state.thrownOnce === false
+              ? "pokemon-battle-slide"
+              : "pokemon-battle-pic"
+          }
+        />
+      );
     } else {
-      return <img src={PendingPokeball} alt={this.state.wildPokemon.name} className="pokeball-IMG"/>
+      return (
+        <img
+          src={PendingPokeball}
+          alt={this.state.wildPokemon.name}
+          className="pokeball-IMG"
+        />
+      );
     }
-  }
+  };
 
   render() {
-    return ((this.state.selected === "run") || (this.state.attempts === -1))  ? (
+    return this.state.selected === "run" || this.state.attempts === -1 ? (
       <Redirect to="/home" />
     ) : (
-      <div className="container login-sign-up-margin">
+      <div className="container catch-margin">
         <div className="row">
           <div className="col-3">
-            <h2>{this.state.wildPokemon.name}</h2>
-            <p>HP: {this.state.wildPokemon.hp}</p>
+            <h2 className="wild-pokemon-name pokemon-battle-slide">
+              {this.state.wildPokemon.name}
+            </h2>
+            <p className="wild-pokemon-hp pokemon-battle-slide">
+              HP: {this.state.wildPokemon.hp}
+            </p>
           </div>
-          <div className="col-3">
-          </div>
-          <div className="col-3">
-            {this.displayPokemon()}
-          </div>
+          <div className="col-3" />
+          <div className="col-3">{this.displayPokemon()}</div>
         </div>
         <div className="row justify-content-center">
           <div className="col-3">
-            <img src={this.state.trainer.image} alt={this.state.trainer.name} className="trainer-battle-IMG"/>
+            <img
+              src={this.state.trainer.image}
+              alt={this.state.trainer.name}
+              className="trainer-battle-IMG"
+            />
           </div>
-          <div className="col-3">
-          </div>
+          <div className="col-3" />
           <div className="col-3 trainer-info">
-            <h2>{this.state.trainer.name}</h2>
+            <h2 className="trainer-battle-name">{this.state.trainer.name}</h2>
           </div>
         </div>
         <div className="row justify-content-center textBox">
-          <div className="col-5 ">
-            {this.displayMessage()}
-          </div>
+          <div className="col-5 ">{this.displayMessage()}</div>
           <div className="col-3 ">
-            <CatchButtons run={this.run} throwPokeball={this.throwPokeball}/>
+            <CatchButtons run={this.run} throwPokeball={this.throwPokeball} />
           </div>
         </div>
       </div>
