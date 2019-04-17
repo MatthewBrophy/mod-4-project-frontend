@@ -138,3 +138,48 @@ code {
   left: 190px;
   border: 5px solid rgb(77, 77, 77);
 }
+
+.pokeball-IMG {
+  height: 80px;
+}
+
+.pokemon-battle-pic {
+  width: 200px;
+  position: absolute;
+}
+
+.pokemon-battle-slide {
+  width: 200px;
+  position: absolute;
+  animation-duration: 5s;
+  animation-name: slideinPokemon;
+}
+
+@keyframes slideinPokemon {
+  from {
+    margin-left: 100%;
+  }
+
+  to {
+    margin-left: 0%;
+  }
+}
+
+.trainer-battle-IMG {
+  width: 200px;
+  animation-duration: 5s;
+  animation-name: slideinPokemon;
+}
+
+.trainer-info {
+  position: relative;
+  bottom: -280px;
+}
+
+.battle-button {
+  width: 150px;
+  margin: 25px;
+  border-radius: 10px;
+  background-color: rgb(232,72,72);
+  color: white;
+}

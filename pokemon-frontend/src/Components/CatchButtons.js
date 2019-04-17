@@ -6,7 +6,7 @@ class Buttons extends Component {
       <div className="button-container">
         <div className="justify-content-center align-items-center">
           <button
-            className="table button"
+            className="table battle-button"
             name="pokeball"
             onClick={ev => this.props.throwPokeball(ev)}
           >
@@ -14,7 +14,7 @@ class Buttons extends Component {
           </button>
           <br />
           <button
-            className="table button"
+            className="table battle-button"
             name="run"
             onClick={() => this.props.run()}
           >
