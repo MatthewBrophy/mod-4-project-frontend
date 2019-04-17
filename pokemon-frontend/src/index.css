@@ -47,12 +47,13 @@ code {
 }
 
 #pokedex {
-  height: 260px;
+  height: 270px;
 
   overflow: auto;
   flex-wrap: nowrap;
   margin-top: 180px;
-  margin-right: 90px;
+  margin-right: 92px;
+  background-color: rgb(35, 177, 199);
 }
 
 .trainer-image {
@@ -128,4 +129,12 @@ code {
 
 .pokedex-display {
   height: 800px;
+}
+
+.catch-button {
+  position: absolute;
+  padding-top: 5px;
+  bottom: 75px;
+  left: 190px;
+  border: 5px solid rgb(77, 77, 77);
 }

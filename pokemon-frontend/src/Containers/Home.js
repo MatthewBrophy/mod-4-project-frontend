@@ -91,23 +91,21 @@ class Home extends Component {
         <h2 className="row justify-content-center align-items-center first-home-box">
           Welcome {this.state.trainer.name} from {this.state.trainer.hometown}!
         </h2>
-        <div className="pokedex-background">
+        <div className="pokedex-background img-fluid">
           <div className="row">
             <div className="col-8">
               <div className="row">{this.displayContent()}</div>
+              <button
+                className="button catch-button"
+                onClick={() => this.setState({ selected: "catch" })}
+              >
+                Catch 'em All
+              </button>
             </div>
             <div className="col-4 justify-content-center align-items-center pokedex-right">
               <PokedexButtons handleClick={this.handleClick} />
             </div>
           </div>
-        </div>
-        <div className="row">
-          <button
-            className="button"
-            onClick={() => this.setState({ selected: "catch" })}
-          >
-            Catch 'em All
-          </button>
         </div>
       </div>
     );
