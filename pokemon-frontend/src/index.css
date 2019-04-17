@@ -1,5 +1,27 @@
 @import url("https://fonts.googleapis.com/css?family=Orbitron");
 
+::-webkit-scrollbar {
+  width: 200px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(35, 177, 199);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(77, 77, 77);
+  border-radius: 5px;
+  border: 2px solid white;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(232, 72, 72);
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -21,15 +43,11 @@ code {
 }
 
 .signUp-button {
-  color: red;
-
   padding-top: 30px;
   padding-right: 30px;
 }
 
 .login-button {
-  color: red;
-
   padding-top: 30px;
   padding-left: 30px;
 }
@@ -51,14 +69,8 @@ code {
 
   overflow: auto;
   flex-wrap: nowrap;
-  margin-top: 180px;
+  margin-top: 235px;
   margin-right: 92px;
-  background-color: rgb(35, 177, 199);
-}
-
-.trainer-image {
-  width: 150px;
-  max-height: 250px;
 }
 
 .first-home-box {
@@ -86,20 +98,45 @@ code {
   border-radius: 10px;
 }
 
+.button:active {
+  background-color: rgb(35, 177, 199);
+}
+
 .first-button {
-  width: 150px;
-  margin: 100px 25px 25px 25px;
+  width: 140px;
+  height: 40px;
+  margin: 530px 25px 15px 25px;
   border-radius: 10px;
+  border: 5px solid rgb(77, 77, 77);
+}
+
+.first-button:active {
+  background-color: rgb(35, 177, 199);
+}
+
+.pokedex-button {
+  width: 140px;
+  height: 40px;
+  margin: 15px 25px 15px 25px;
+  border-radius: 10px;
+  border: 5px solid rgb(77, 77, 77);
+}
+
+.pokedex-button:active {
+  background-color: rgb(35, 177, 199);
+}
+
+.catch-button {
+  position: absolute;
+  padding-top: 5px;
+  bottom: 75px;
+  left: 190px;
+  border: 5px solid rgb(77, 77, 77);
 }
 
 .landing-page-image {
   width: 1000px;
   margin: 50px 50px 0px 50px;
-}
-
-.home-trainer-image {
-  width: 100px;
-  margin-bottom: 100px;
 }
 
 .sign-up-image {
@@ -124,19 +161,51 @@ code {
 }
 
 .pokedex-background {
-  background-image: url(./images/Try8.png);
+  background-image: url(./images/Try11.png);
 }
 
 .pokedex-display {
   height: 800px;
 }
 
-.catch-button {
+.trainer-image {
   position: absolute;
-  padding-top: 5px;
-  bottom: 75px;
-  left: 190px;
+  max-width: 150px;
+  max-height: 200px;
+  right: -20px;
+  top: 250px;
+}
+
+.trainer-info {
+  position: absolute;
+  top: 370px;
+  right: 300px;
+}
+
+.edit-trainer-button {
+  width: 140px;
+  height: 40px;
+  border-radius: 10px;
   border: 5px solid rgb(77, 77, 77);
+  position: absolute;
+  top: 460px;
+  right: 215px;
+}
+
+.delete-trainer-button {
+  width: 140px;
+  height: 40px;
+  border-radius: 10px;
+  border: 5px solid rgb(77, 77, 77);
+  position: absolute;
+  top: 460px;
+  right: 430px;
+}
+
+.pokedex-current-display {
+  position: absolute;
+  top: 315px;
+  font-size: 30px;
 }
 
 .pokeball-IMG {

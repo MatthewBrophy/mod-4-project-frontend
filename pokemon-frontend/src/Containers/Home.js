@@ -5,7 +5,6 @@ import Catch from "./Catch";
 import Team from "../Components/Team";
 import { Redirect } from "react-router-dom";
 import PokedexButtons from "../Components/PokedexButtons";
-import PokedexImage from "../images/pokedex_dribbble-01.png";
 
 class Home extends Component {
   constructor(props) {
@@ -14,7 +13,8 @@ class Home extends Component {
       pokedex: this.props.pokedex,
       trainersPokemon: [],
       trainer: this.props.trainer,
-      selected: "pokedex"
+      selected: "pokedex",
+      button: ""
     };
     this.getTeam();
   }
@@ -85,9 +85,19 @@ class Home extends Component {
     });
   };
 
+  selectionSelector = ev => {
+    this.setState({ button: "Catch 'em All!!!" });
+    console.log(this.state.button);
+  };
+
+  removeSelector = ev => {
+    this.setState({ button: "" });
+  };
+
   render() {
     return (
       <div className="container ">
+        <p clsasName="catchem-display">{this.state.button}</p>
         <h2 className="row justify-content-center align-items-center first-home-box">
           Welcome {this.state.trainer.name} from {this.state.trainer.hometown}!
         </h2>
@@ -96,8 +106,11 @@ class Home extends Component {
             <div className="col-8">
               <div className="row">{this.displayContent()}</div>
               <button
+                name="catch"
                 className="button catch-button"
                 onClick={() => this.setState({ selected: "catch" })}
+                onMouseOver={ev => this.selectionSelector(ev)}
+                onMouseLeave={ev => this.removeSelector(ev)}
               >
                 Catch 'em All
               </button>
