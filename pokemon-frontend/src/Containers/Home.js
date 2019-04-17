@@ -87,7 +87,6 @@ class Home extends Component {
 
   selectionSelector = ev => {
     this.setState({ button: "Catch 'em All!!!" });
-    console.log(this.state.button);
   };
 
   removeSelector = ev => {
@@ -97,7 +96,7 @@ class Home extends Component {
   render() {
     return (
       <div className="container ">
-        <p clsasName="catchem-display">{this.state.button}</p>
+        <p className="catchem-display">{this.state.button}</p>
         <h2 className="row justify-content-center align-items-center first-home-box">
           Welcome {this.state.trainer.name} from {this.state.trainer.hometown}!
         </h2>

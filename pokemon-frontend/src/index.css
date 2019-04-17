@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Orbitron");
 
 ::-webkit-scrollbar {
-  width: 200px;
+  width: 20px;
   height: 10px;
 }
 
@@ -172,14 +172,14 @@ code {
   position: absolute;
   max-width: 150px;
   max-height: 200px;
-  right: -20px;
-  top: 250px;
+  right: 120px;
+  top: 210px;
 }
 
 .trainer-info {
   position: absolute;
-  top: 370px;
-  right: 300px;
+  top: 330px;
+  right: -30px;
 }
 
 .edit-trainer-button {
@@ -188,7 +188,7 @@ code {
   border-radius: 10px;
   border: 5px solid rgb(77, 77, 77);
   position: absolute;
-  top: 460px;
+  top: 380px;
   right: 215px;
 }
 
@@ -198,7 +198,7 @@ code {
   border-radius: 10px;
   border: 5px solid rgb(77, 77, 77);
   position: absolute;
-  top: 460px;
+  top: 380px;
   right: 430px;
 }
 
@@ -206,6 +206,13 @@ code {
   position: absolute;
   top: 315px;
   font-size: 30px;
+}
+
+.catchem-display {
+  position: absolute;
+  font-size: 30px;
+  top: 410px;
+  right: 540px;
 }
 
 .pokeball-IMG {
@@ -249,6 +256,6 @@ code {
   width: 150px;
   margin: 25px;
   border-radius: 10px;
-  background-color: rgb(232,72,72);
+  background-color: rgb(232, 72, 72);
   color: white;
 }
