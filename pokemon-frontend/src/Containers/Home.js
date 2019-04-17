@@ -51,7 +51,7 @@ class Home extends Component {
       return (
         <div className="container pokedex-display">
           <div className="row justify-content-center align-items-center first-home-box">
-            <Pokedex pokedex={this.state.pokedex} />/
+            <Pokedex pokedex={this.state.pokedex} />
           </div>
         </div>
       );
