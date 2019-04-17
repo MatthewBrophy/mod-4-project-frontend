@@ -4,10 +4,12 @@ import Nickname from "../Components/Nickname";
 import { Redirect } from "react-router-dom";
 import Pending from "../images/pending_pokeball.gif";
 
+
 class Catch extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      selected: "not run",
       pokedex: this.props.pokedex,
       trainer: this.props.trainer,
       wildPokemon: this.getRandomPokemon(),
@@ -15,6 +17,7 @@ class Catch extends Component {
       caught: false,
       inPokeball: false
     };
+    console.log(this.state)
   }
 
   getRandomPokemon = () => {
@@ -40,8 +43,7 @@ class Catch extends Component {
   };
 
   run = () => {
-    console.log("run")
-    return <Redirect to="/home" />
+    this.setState({selected: "run"})
   };
 
   displayMessage = () => {
@@ -61,7 +63,9 @@ class Catch extends Component {
   }
 
   render() {
-    return (
+    return this.state.selected === "run" ? (
+      <Redirect to="/home" />
+    ) : (
       <div className="container login-sign-up-margin">
         <div className="row justify-content-center">
           <div className="col-3">
