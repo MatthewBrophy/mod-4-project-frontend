@@ -5,7 +5,7 @@ import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
 import ChooseStarter from "./Components/ChooseStarter";
 import Home from "./Containers/Home";
-import Catch from "./Containers/Catch"
+import Catch from "./Containers/Catch";
 
 const AllPokemonURL = "http://localhost:3000/api/v1/pokemons";
 
@@ -14,19 +14,18 @@ class App extends Component {
     super(props);
     this.state = {
       trainer: {
-        id:900,
-        name: 'Matt',
-        hometown: 'here',
+        id: 900,
+        name: "Matt",
+        hometown: "here",
         age: 4000,
         image: "https://cdn.bulbagarden.net/upload/thumb/a/a2/ORAS_Pok%C3%A9mon_Ranger_M.png/150px-ORAS_Pok%C3%A9mon_Ranger_M.png",
         rival: 'kevin'
       },
       trainersPokemon: [],
       pokedex: []
-    }
+    };
 
     this.populatePokedex();
-
   }
 
   populatePokedex = () => {
@@ -94,7 +93,13 @@ class App extends Component {
               />
               <Route
                 path="/catch"
-                component={() => <Catch pokedex={this.state.pokedex} createTeam={this.createTeam} trainer={this.state.trainer} />}
+                component={() => (
+                  <Catch
+                    pokedex={this.state.pokedex}
+                    createTeam={this.createTeam}
+                    trainer={this.state.trainer}
+                  />
+                )}
               />
               <Route
                 path="/home"
