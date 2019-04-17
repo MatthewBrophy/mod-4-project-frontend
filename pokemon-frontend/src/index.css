@@ -172,14 +172,14 @@ code {
   position: absolute;
   max-width: 150px;
   max-height: 200px;
-  right: 120px;
+  right: 130px;
   top: 210px;
 }
 
 .trainer-info {
   position: absolute;
   top: 330px;
-  right: -30px;
+  right: -10px;
 }
 
 .edit-trainer-button {
@@ -248,9 +248,8 @@ code {
 }
 
 .trainer-info {
-  position: absolute;
-  bottom: -200px;
-  float: right;
+  position: relative;
+  bottom: -280px;
 }
 
 .battle-button {
