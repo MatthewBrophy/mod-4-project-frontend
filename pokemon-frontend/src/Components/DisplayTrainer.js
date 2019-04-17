@@ -4,9 +4,9 @@ class EditTrainer extends Component {
   render() {
     return (
       <Fragment>
-        <div className="container">
+        <div className="container trainer-display">
           <div className="row justify-content-center align-items-center">
-            <div className="col-5">
+            <div className="col-5 trainer-info">
               <p>You are {this.props.trainer.age} years old</p>
               <p>You're rival is {this.props.trainer.rival} :(</p>
             </div>
@@ -19,14 +19,17 @@ class EditTrainer extends Component {
             </div>
           </div>
           <div className="row col-12 justify-content-center align-items-center">
-            <button className="button" onClick={() => this.props.editClick()}>
-              edit trainer
+            <button
+              className="edit-trainer-button"
+              onClick={() => this.props.editClick()}
+            >
+              Edit
             </button>
             <button
-              className="button"
+              className="delete-trainer-button"
               onClick={() => this.props.deleteTrainer()}
             >
-              delete trainer
+              Delete
             </button>
           </div>
         </div>

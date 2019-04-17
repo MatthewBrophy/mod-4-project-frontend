@@ -73,11 +73,6 @@ code {
   margin-right: 92px;
 }
 
-.trainer-image {
-  width: 150px;
-  max-height: 250px;
-}
-
 .first-home-box {
   margin-top: 50px;
 }
@@ -144,11 +139,6 @@ code {
   margin: 50px 50px 0px 50px;
 }
 
-.home-trainer-image {
-  width: 100px;
-  margin-bottom: 100px;
-}
-
 .sign-up-image {
   justify-content: center;
   align-items: center;
@@ -176,4 +166,44 @@ code {
 
 .pokedex-display {
   height: 800px;
+}
+
+.trainer-image {
+  position: absolute;
+  max-width: 150px;
+  max-height: 200px;
+  right: -20px;
+  top: 250px;
+}
+
+.trainer-info {
+  position: absolute;
+  top: 370px;
+  right: 300px;
+}
+
+.edit-trainer-button {
+  width: 140px;
+  height: 40px;
+  border-radius: 10px;
+  border: 5px solid rgb(77, 77, 77);
+  position: absolute;
+  top: 460px;
+  right: 215px;
+}
+
+.delete-trainer-button {
+  width: 140px;
+  height: 40px;
+  border-radius: 10px;
+  border: 5px solid rgb(77, 77, 77);
+  position: absolute;
+  top: 460px;
+  right: 430px;
+}
+
+.pokedex-current-display {
+  position: absolute;
+  top: 315px;
+  font-size: 30px;
 }
