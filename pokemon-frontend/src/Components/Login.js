@@ -27,7 +27,6 @@ class Login extends Component {
       })
       .then(
         foundTrainer => (
-          //console.log(foundTrainer),
           this.setState({ trainer: foundTrainer }),
           this.props.setTrainer(foundTrainer)
         )
