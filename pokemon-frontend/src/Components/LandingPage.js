@@ -3,10 +3,15 @@ import React, { Component } from "react";
 import LandingPageImage from "../../src/images/CoverImage.jpg";
 import { Link } from "react-router-dom";
 class LandingPage extends Component {
-  constructor(props){
-    super(props)
-    this.props.introMusic.play()
+  constructor(props) {
+    super(props);
+    this.props.introMusic.play();
+  }
 
+  componentDidCatch() {
+    {
+      this.props.introMusic.play();
+    }
   }
 
   render() {
