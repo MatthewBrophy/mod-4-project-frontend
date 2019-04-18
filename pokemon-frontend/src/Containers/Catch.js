@@ -13,7 +13,7 @@ class Catch extends Component {
       selected: "not run",
       pokedex: this.props.pokedex,
       trainer: this.props.trainer,
-      wildPokemon: this.getRandomPokemon(),
+      wildPokemon: this.props.wildPokemon,
       attempts: 0,
       inPokeball: false,
       caught: false

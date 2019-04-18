@@ -95,16 +95,12 @@ class App extends Component {
               />
               <Route
                 path="/map"
-                component={() => <PokeMap pokedex={this.state.pokedex} />}
+                component={() => <PokeMap trainer={this.state.trainer} createTeam={this.createTeam} pokedex={this.state.pokedex} />}
               />
               <Route
                 path="/catch"
                 component={() => (
-                  <Catch
-                    pokedex={this.state.pokedex}
-                    createTeam={this.createTeam}
-                    trainer={this.state.trainer}
-                  />
+                  <Catch wildPokemon={this.state.wildPokemon} pokedex={this.state.pokedex} />
                 )}
               />
               <Route

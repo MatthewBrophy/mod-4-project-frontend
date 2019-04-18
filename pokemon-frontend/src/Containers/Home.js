@@ -75,7 +75,7 @@ class Home extends Component {
         </div>
       );
     } else {
-      return <Redirect to="/catch" />;
+      return <Redirect to="/map" />;
     }
   };
 
