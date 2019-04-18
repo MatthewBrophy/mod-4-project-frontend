@@ -7,9 +7,11 @@ import ChooseStarter from "./Components/ChooseStarter";
 import Home from "./Containers/Home";
 import Catch from "./Containers/Catch";
 import PokeMap from "./Components/map";
+
 import IntroMusic from "./music/IntroMusic.mp3"
 
 const introMusic = new Audio(IntroMusic)
+
 
 const AllPokemonURL = "http://localhost:3000/api/v1/pokemons";
 
@@ -31,7 +33,6 @@ class App extends Component {
     };
 
     this.populatePokedex();
-    introMusic.play()
   }
 
   populatePokedex = () => {
@@ -78,7 +79,7 @@ class App extends Component {
         <Router>
           <div>
             <Switch>
-              <Route exact path="/" component={() => <LandingPage />} />
+              <Route exact path="/" component={() => <LandingPage introMusic={introMusic}/>} />
               <Route
                 path="/sign-up"
                 component={() => <SignUp setTrainer={this.setTrainer} />}

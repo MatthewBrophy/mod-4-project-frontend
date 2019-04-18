@@ -14,8 +14,6 @@ class Catch extends Component {
   constructor(props) {
     super(props);
 
-    battleMusic.play();
-
     this.state = {
       thrownOnce: false,
       selected: "not run",
@@ -29,6 +27,7 @@ class Catch extends Component {
   }
 
   componentDidMount() {
+    battleMusic.play();
     this.getAttempts();
   }
 
@@ -58,11 +57,13 @@ class Catch extends Component {
       failChance = this.state.wildPokemon.hp;
     }
     if (this.state.attempts < 1 && this.state.caught === false) {
+      battleMusic.pause()
       alert(`${this.state.wildPokemon.name} ran away!`);
       this.setState(prevState => ({
         attempts: prevState.attempts - 1
       }));
     } else if (this.state.caught === true) {
+      battleMusic.pause()
       alert("You've caught this pokemon already!");
     } else {
       this.setState(
@@ -92,9 +93,6 @@ class Catch extends Component {
         caught: true
       }));
     } else {
-      if ((this.state.attempts - 1)  === -1) {
-        battleMusic.pause()
-      }
       this.setState(prevState => ({
         attempts: prevState.attempts - 1,
         inPokeball: false

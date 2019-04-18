@@ -2,8 +2,13 @@ import React, { Component } from "react";
 
 import LandingPageImage from "../../src/images/CoverImage.jpg";
 import { Link } from "react-router-dom";
-
 class LandingPage extends Component {
+  constructor(props){
+    super(props)
+    this.props.introMusic.play()
+
+  }
+
   render() {
     return (
       <div className="row h-100 justify-content-center align-items-center">
@@ -12,7 +17,6 @@ class LandingPage extends Component {
           alt="Landing Page"
           className="img-fluid landing-page-image"
         />
-
         <div className="row">
           <Link to="./sign-up" className="signUp-button">
             <button className="button"> Sign Up</button>

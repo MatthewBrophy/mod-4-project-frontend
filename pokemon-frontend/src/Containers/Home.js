@@ -25,7 +25,7 @@ class Home extends Component {
   componentDidMount(){
     homeMusic.play()
   }
-  
+
 
   getPokemon = pokemon => {
     let pokemonId = pokemon.pokemon_id;
