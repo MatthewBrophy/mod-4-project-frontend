@@ -1,5 +1,5 @@
 .map {
-  display: grid;
-  grid-template-columns: 4% 4% 4% 4% 4%;
-  grid-template-rows: 4% 4% 4% 4% 4%;
+  width: 466px;
+  height: 466px;
+  background-color: pink;
 }
