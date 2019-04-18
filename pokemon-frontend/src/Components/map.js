@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, NavLink} from "react";
 import MapCSS from "../map.css";
 import { Redirect } from "react-router-dom";
 import Catch from "../Containers/Catch";
@@ -9,7 +9,8 @@ class PokeMap extends Component {
 
     this.state = {
       pokemon: this.getFiveRandomPokemon(),
-      selectedPokemon: null
+      selectedPokemon: null,
+      redirect: false
     };
   }
 
@@ -57,21 +58,38 @@ class PokeMap extends Component {
   };
 
   setWildPokemon = pokemon => {
-    this.setState({ selectedPokemon: pokemon });
+    this.setState({ selectedPokemon: pokemon, redirect: true });
   };
 
-  render() {
-    return this.state.selectedPokemon !== null ? (
-      <Catch
+  decideRedirect = () => {
+    if (this.state.selectedPokemon !== null) {
+      return <Catch
         wildPokemon={this.state.selectedPokemon}
         trainer={this.props.trainer}
         createTeam={this.props.createTeam}
       />
+    } else {
+      return <Redirect to="/home" />
+    }
+  }
+
+  handleClick = () => {
+    this.setState({redirect: true})
+  }
+
+  render() {
+    return (this.state.redirect === true) ? (
+      this.decideRedirect()
     ) : (
+      <div className="container">
       <div className="row justify-content-center login-sign-up-margin">
         <div name="map" id="map" className="map" />
       </div>
-    );
+      <div className="row justify-content-center">
+        <button className="button" onClick={()=> this.handleClick()}>Home</button>
+      </div>
+    </div>
+  );
   }
 }
 
