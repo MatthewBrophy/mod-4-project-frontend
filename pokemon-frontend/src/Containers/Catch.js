@@ -4,15 +4,12 @@ import Nickname from "../Components/Nickname";
 import { Redirect } from "react-router-dom";
 import Pokeball from "../images/pokeball.png";
 import PendingPokeball from "../images/pending_pokeball.gif";
-<<<<<<< HEAD
 import HappyPika from "../images/easterEggs/Happy-Pika-remake.gif";
-=======
 import CatchSound from "../music/CatchSound.mp3"
 import BattleMusic from "../music/BattleMusic.mp3"
 
 const battleMusic = new Audio(BattleMusic)
 const catchSound = new Audio(CatchSound)
->>>>>>> 52d6b36769afd73519ce6623183a187e4d6e95b4
 
 class Catch extends Component {
   constructor(props) {
@@ -89,6 +86,7 @@ class Catch extends Component {
   tryCatch = failChance => {
     let catchChance = Math.floor(Math.random() * 150);
     if (catchChance > failChance) {
+      battleMusic.pause()
       catchSound.play()
       this.setState(prevState => ({
         attempts: prevState.attempts - 1,

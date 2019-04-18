@@ -5,6 +5,9 @@ import Catch from "./Catch";
 import Team from "../Components/Team";
 import { Redirect } from "react-router-dom";
 import PokedexButtons from "../Components/PokedexButtons";
+import HomeMusic from "../music/homeMusic.mp3"
+
+const homeMusic = new Audio(HomeMusic)
 
 class Home extends Component {
   constructor(props) {
@@ -17,7 +20,7 @@ class Home extends Component {
       button: ""
     };
     this.getTeam();
-
+    homeMusic.play()
   }
 
   getPokemon = pokemon => {
@@ -75,6 +78,7 @@ class Home extends Component {
         </div>
       );
     } else {
+      homeMusic.pause()
       return <Redirect to="/map" />;
     }
   };
