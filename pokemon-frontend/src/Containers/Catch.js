@@ -9,6 +9,12 @@ import BattleMusic from "../music/BattleMusic.mp3";
 
 const battleMusic = new Audio(BattleMusic);
 const catchSound = new Audio(CatchSound);
+import HappyPika from "../images/easterEggs/Happy-Pika-remake.gif";
+import CatchSound from "../music/CatchSound.mp3"
+import BattleMusic from "../music/BattleMusic.mp3"
+
+const battleMusic = new Audio(BattleMusic)
+const catchSound = new Audio(CatchSound)
 
 class Catch extends Component {
   constructor(props) {
@@ -85,7 +91,12 @@ class Catch extends Component {
   tryCatch = failChance => {
     let catchChance = Math.floor(Math.random() * 150);
     if (catchChance > failChance) {
+<<<<<<< HEAD
       catchSound.play();
+=======
+      battleMusic.pause()
+      catchSound.play()
+>>>>>>> 6873028af9324a34f72e75be379e5a49ec33163f
       this.setState(prevState => ({
         attempts: prevState.attempts - 1,
         caught: true

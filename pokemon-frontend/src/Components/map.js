@@ -86,7 +86,7 @@ class PokeMap extends Component {
         <div name="map" id="map" className="map" />
       </div>
       <div className="row justify-content-center">
-        <button className="button" onClick={()=> this.handleClick()}>Home</button>
+        <button className="button" onClick={()=> this.handleClick()}>Run Away</button>
       </div>
     </div>
   );
