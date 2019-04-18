@@ -4,7 +4,6 @@ class EditTrainer extends Component {
   constructor(props) {
     super(props);
 
-    console.log(props);
     this.state = {
       hometown: this.props.trainer.hometown,
       age: this.props.trainer.age,
@@ -14,7 +13,6 @@ class EditTrainer extends Component {
   }
 
   handleChange = event => {
-    console.log(event.target.value);
     this.setState({
       [event.target.name]: event.target.value
     });

@@ -8,7 +8,7 @@ class EditTrainer extends Component {
           <div className="row justify-content-center align-items-center">
             <div className="col-5 trainer-info">
               <p>You are {this.props.trainer.age} years old</p>
-              <p>You're rival is {this.props.trainer.rival} :(</p>
+              <p>Your rival is {this.props.trainer.rival} :(</p>
             </div>
             <div className="col-3">
               <img

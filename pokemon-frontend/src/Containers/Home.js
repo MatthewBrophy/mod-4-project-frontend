@@ -25,7 +25,6 @@ class Home extends Component {
     fetch(url)
       .then(data => data.json())
       .then(foundPokemon => {
-        //console.log("fetched pokemon", foundPokemon)
         this.setState(prevState => ({
           trainersPokemon: [foundPokemon, ...prevState.trainersPokemon]
         }));
@@ -39,7 +38,6 @@ class Home extends Component {
     fetch(url)
       .then(data => data.json())
       .then(team => {
-        //console.log(team)
         team.forEach(pokemon => {
           this.getPokemon(pokemon);
         });

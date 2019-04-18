@@ -19,7 +19,6 @@ class Login extends Component {
       .then(res => {
         this.setState({ status: res.status });
         if (res.status !== 200) {
-          //console.log("bad")
           alert("Username does not exist!");
         } else {
           return res.json();
@@ -71,7 +70,7 @@ class Login extends Component {
         </div>
         <div className="row justify-content-center align-items-center">
           <div className="col-7 textBox">
-          <p>First, What is your name?</p>
+            <p>First, What is your name?</p>
           </div>
         </div>
       </div>
