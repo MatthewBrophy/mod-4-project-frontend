@@ -2,6 +2,9 @@ import React, { Component, NavLink} from "react";
 import MapCSS from "../map.css";
 import { Redirect } from "react-router-dom";
 import Catch from "../Containers/Catch";
+import RouteMusic from "../music/Route.mp3"
+
+const routeMusic = new Audio(RouteMusic)
 
 class PokeMap extends Component {
   constructor(props) {
@@ -12,9 +15,11 @@ class PokeMap extends Component {
       selectedPokemon: null,
       redirect: false
     };
+
   }
 
   componentDidMount() {
+    routeMusic.play()
     this.placePokemon();
   }
 
@@ -58,6 +63,7 @@ class PokeMap extends Component {
   };
 
   setWildPokemon = pokemon => {
+    routeMusic.pause()
     this.setState({ selectedPokemon: pokemon, redirect: true });
   };
 
@@ -74,6 +80,7 @@ class PokeMap extends Component {
   }
 
   handleClick = () => {
+    routeMusic.pause()
     this.setState({redirect: true})
   }
 

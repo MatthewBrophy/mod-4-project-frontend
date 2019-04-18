@@ -93,6 +93,9 @@ class Catch extends Component {
         caught: true
       }));
     } else {
+      if ((this.state.attempts - 1)  === -1) {
+        battleMusic.pause()
+      }
       this.setState(prevState => ({
         attempts: prevState.attempts - 1,
         inPokeball: false

@@ -20,8 +20,12 @@ class Home extends Component {
       button: ""
     };
     this.getTeam();
+  }
+
+  componentDidMount(){
     homeMusic.play()
   }
+  
 
   getPokemon = pokemon => {
     let pokemonId = pokemon.pokemon_id;
