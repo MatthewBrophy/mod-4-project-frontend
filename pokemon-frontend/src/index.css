@@ -155,7 +155,16 @@ code {
 
 .textBox {
   padding: 30px;
+
+  border: 3px solid white;
+  box-shadow: 0 3px 0 3px black, inset 0 3px 0 1px black, 0 0 0 3px black,
+    inset 0 0 0 3px black;
+}
+
+.battle-text-box {
+  padding: 30px;
   position: absolute;
+  top: 540px;
   border: 3px solid white;
   box-shadow: 0 3px 0 3px black, inset 0 3px 0 1px black, 0 0 0 3px black,
     inset 0 0 0 3px black;
@@ -253,7 +262,7 @@ code {
 
 .trainer-battle-name {
   position: absolute;
-  top: -380px;
+  top: -400px;
   right: 730px;
 }
 

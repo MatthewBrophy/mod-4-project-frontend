@@ -171,7 +171,7 @@ class Catch extends Component {
             <h2 className="trainer-battle-name">{this.state.trainer.name}</h2>
           </div>
         </div>
-        <div className="row justify-content-center textBox">
+        <div className="row justify-content-center battle-text-box">
           <div className="col-5 ">{this.displayMessage()}</div>
           <div className="col-3 ">
             <CatchButtons run={this.run} throwPokeball={this.throwPokeball} />
