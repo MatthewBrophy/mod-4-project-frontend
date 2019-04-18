@@ -5,12 +5,17 @@ import { Redirect } from "react-router-dom";
 import Pokeball from "../images/pokeball.png";
 import PendingPokeball from "../images/pending_pokeball.gif";
 import CatchSound from "../music/CatchSound.mp3"
+import BattleMusic from "../music/BattleMusic.mp3"
 
+const battleMusic = new Audio(BattleMusic)
 const catchSound = new Audio(CatchSound)
 
 class Catch extends Component {
   constructor(props) {
     super(props);
+
+    battleMusic.play()
+
     this.state = {
       thrownOnce: false,
       selected: "not run",
@@ -97,6 +102,7 @@ class Catch extends Component {
     if (this.state.caught === true) {
       alert("Give your Pokemon a nickname first!");
     } else {
+      battleMusic.pause()
       this.setState({ selected: "run" });
     }
   };
