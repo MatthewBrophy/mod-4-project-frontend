@@ -6,7 +6,7 @@ import Login from "./Components/Login";
 import ChooseStarter from "./Components/ChooseStarter";
 import Home from "./Containers/Home";
 import Catch from "./Containers/Catch";
-import PokeMap from "./Components/Map";
+import PokeMap from "./Components/map";
 
 const AllPokemonURL = "http://localhost:3000/api/v1/pokemons";
 
@@ -94,12 +94,21 @@ class App extends Component {
               />
               <Route
                 path="/map"
-                component={() => <PokeMap trainer={this.state.trainer} createTeam={this.createTeam} pokedex={this.state.pokedex} />}
+                component={() => (
+                  <PokeMap
+                    trainer={this.state.trainer}
+                    createTeam={this.createTeam}
+                    pokedex={this.state.pokedex}
+                  />
+                )}
               />
               <Route
                 path="/catch"
                 component={() => (
-                  <Catch wildPokemon={this.state.wildPokemon} pokedex={this.state.pokedex} />
+                  <Catch
+                    wildPokemon={this.state.wildPokemon}
+                    pokedex={this.state.pokedex}
+                  />
                 )}
               />
               <Route
