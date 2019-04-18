@@ -24,17 +24,12 @@ class PokeMap extends Component {
     let boundaries = div.getBoundingClientRect();
     console.log("boundaries", boundaries)
     this.state.pokemon.forEach((poke) => {
-      let randomX = Math.floor((Math.random() * boundaries.height) + boundaries.top)
-      let randomY = Math.floor((Math.random() * boundaries.width) + boundaries.left)
+      let randomX = Math.floor((Math.random() * (boundaries.height - 100)) + boundaries.top + 20)
+      let randomY = Math.floor((Math.random() * (boundaries.width - 100)) + boundaries.left + 20)
+      console.log(poke.name)
       console.log("x", randomX)
       console.log("y", randomY)
 
-      let pokeStyle = {
-        top: `${randomX}px`,
-        left: `${randomY}px`,
-        margin: '10px',
-        height: '10px'
-      };
       let img = document.createElement('img')
       img.src = poke.front_img
       img.style.height = "80px"
@@ -42,8 +37,7 @@ class PokeMap extends Component {
       img.style.top = `${randomX}px`
       img.style.left = `${randomY}px`
       img.alt = poke.name
-      //img.addEventListener("click", this.setWildPokemon(poke))
-      //let img = onClick={() => this.props.setWildPokemon(poke)}/>
+      img.addEventListener("click", function(poke){ this.setWildPokemon(poke) })
       div.appendChild(img)
     })
   }
