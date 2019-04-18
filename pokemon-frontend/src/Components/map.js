@@ -76,5 +76,3 @@ class PokeMap extends Component {
 }
 
 export default PokeMap;
-
-//<img src="https://vignette.wikia.nocookie.net/pokemoncrater/images/b/bc/Grass_Type.jpg/revision/latest?cb=20100315205316" alt="map" />

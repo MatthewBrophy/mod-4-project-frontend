@@ -222,7 +222,7 @@ code {
   position: absolute;
   font-size: 30px;
   top: 410px;
-  right: 540px;
+  right: 300px;
 }
 
 .pokeball-IMG {
@@ -315,4 +315,12 @@ code {
 
 .catch-margin {
   margin-top: 200px;
+}
+
+.happy-pika {
+  position: absolute;
+  right: 590px;
+  width: 300px;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }

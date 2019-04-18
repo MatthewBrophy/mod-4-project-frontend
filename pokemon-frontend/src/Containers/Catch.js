@@ -4,6 +4,7 @@ import Nickname from "../Components/Nickname";
 import { Redirect } from "react-router-dom";
 import Pokeball from "../images/pokeball.png";
 import PendingPokeball from "../images/pending_pokeball.gif";
+import HappyPika from "../images/easterEggs/Happy-Pika-remake.gif";
 
 class Catch extends Component {
   constructor(props) {
@@ -117,7 +118,14 @@ class Catch extends Component {
 
   displayPokemon = () => {
     if (this.state.caught === true) {
-      return <img src={Pokeball} alt="pokeball" className="pokeball-IMG" />;
+      return [
+        <img src={Pokeball} alt="pokeball" className="pokeball-IMG" />,
+        <img
+          src="http://www.pokestadium.com/sprites/xy/pikachu-2.gif"
+          alt="pokeball"
+          className="happy-pika"
+        />
+      ];
     } else if (this.state.inPokeball === false) {
       return (
         <img
