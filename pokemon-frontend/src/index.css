@@ -155,6 +155,7 @@ code {
 
 .textBox {
   padding: 30px;
+  position: absolute;
   border: 3px solid white;
   box-shadow: 0 3px 0 3px black, inset 0 3px 0 1px black, 0 0 0 3px black,
     inset 0 0 0 3px black;
