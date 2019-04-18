@@ -45,7 +45,7 @@ class Login extends Component {
 
   render() {
     return this.state.status === 200 ? (
-      <Redirect to="/Home" />
+      <Redirect to="/home" />
     ) : (
       <div className="container login-sign-up-margin">
         <div className="row  justify-content-center align-items-center">
