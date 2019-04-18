@@ -17,6 +17,7 @@ class Home extends Component {
       button: ""
     };
     this.getTeam();
+
   }
 
   getPokemon = pokemon => {
@@ -32,6 +33,7 @@ class Home extends Component {
   };
 
   getTeam = () => {
+    this.props.introMusic.pause()
     let url = `http://localhost:3000/api/v1/teams/find/${
       this.state.trainer.id
     }`;
