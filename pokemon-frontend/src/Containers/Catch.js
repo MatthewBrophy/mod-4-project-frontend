@@ -4,18 +4,17 @@ import Nickname from "../Components/Nickname";
 import { Redirect } from "react-router-dom";
 import Pokeball from "../images/pokeball.png";
 import PendingPokeball from "../images/pending_pokeball.gif";
-import HappyPika from "../images/easterEggs/Happy-Pika-remake.gif";
-import CatchSound from "../music/CatchSound.mp3"
-import BattleMusic from "../music/BattleMusic.mp3"
+import CatchSound from "../music/CatchSound.mp3";
+import BattleMusic from "../music/BattleMusic.mp3";
 
-const battleMusic = new Audio(BattleMusic)
-const catchSound = new Audio(CatchSound)
+const battleMusic = new Audio(BattleMusic);
+const catchSound = new Audio(CatchSound);
 
 class Catch extends Component {
   constructor(props) {
     super(props);
 
-    battleMusic.play()
+    battleMusic.play();
 
     this.state = {
       thrownOnce: false,
@@ -86,8 +85,8 @@ class Catch extends Component {
   tryCatch = failChance => {
     let catchChance = Math.floor(Math.random() * 150);
     if (catchChance > failChance) {
-      battleMusic.pause()
-      catchSound.play()
+      battleMusic.pause();
+      catchSound.play();
       this.setState(prevState => ({
         attempts: prevState.attempts - 1,
         caught: true
@@ -107,7 +106,7 @@ class Catch extends Component {
     if (this.state.caught === true) {
       alert("Give your Pokemon a nickname first!");
     } else {
-      battleMusic.pause()
+      battleMusic.pause();
       this.setState({ selected: "run" });
     }
   };
