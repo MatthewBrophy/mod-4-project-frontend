@@ -3,6 +3,8 @@ import MapCSS from "../map.css";
 import { Redirect } from "react-router-dom";
 import Catch from "../Containers/Catch"
 
+
+
 class PokeMap extends Component {
   constructor(props){
     super(props)
@@ -13,25 +15,44 @@ class PokeMap extends Component {
     }
   }
 
-  getFiveRandomPokemon = () => {
-    let pokemon = []
-    let containerHeight = 180
-    for (let i = 0; i < 5; i ++){
-      let poke = this.props.pokedex[Math.floor(Math.random() * 151)]
-      console.log(poke)
-      let randomX = Math.floor(Math.random() * containerHeight)
-      let randomY = Math.floor(Math.random() * containerHeight)
+  componentDidMount(){
+    this.placePokemon()
+  }
+
+  placePokemon = () => {
+    var div = document.getElementById("map");
+    let boundaries = div.getBoundingClientRect();
+    console.log("boundaries", boundaries)
+    this.state.pokemon.forEach((poke) => {
+      let randomX = Math.floor((Math.random() * boundaries.height) + boundaries.top)
+      let randomY = Math.floor((Math.random() * boundaries.width) + boundaries.left)
       console.log("x", randomX)
       console.log("y", randomY)
 
       let pokeStyle = {
-        position: 'relative',
         top: `${randomX}px`,
         left: `${randomY}px`,
         margin: '10px',
-        height: '80px'
+        height: '10px'
       };
-      poke.style = pokeStyle
+      let img = document.createElement('img')
+      img.src = poke.front_img
+      img.style.height = "80px"
+      img.style.position = "absolute"
+      img.style.top = `${randomX}px`
+      img.style.left = `${randomY}px`
+      img.alt = poke.name
+      //img.addEventListener("click", this.setWildPokemon(poke))
+      //let img = onClick={() => this.props.setWildPokemon(poke)}/>
+      div.appendChild(img)
+    })
+  }
+
+  getFiveRandomPokemon = () => {
+    let pokemon = []
+    for (let i = 0; i < 5; i ++){
+      let poke = this.props.pokedex[Math.floor(Math.random() * 151)]
+      console.log(poke)
       pokemon.push(poke)
     }
     return pokemon
@@ -46,14 +67,7 @@ class PokeMap extends Component {
       <Catch wildPokemon={this.state.selectedPokemon} trainer={this.props.trainer} createTeam={this.props.createTeam}/>
     ) : (
       <div className="row justify-content-center login-sign-up-margin">
-        <div className="map">
-        {this.state.pokemon.map((poke, index) => {
-          return (
-            <div>
-              <img src={poke.front_img} name={index} style={poke.style} onClick={(ev) => this.setWildPokemon(this.state.pokemon[ev.target.name])}/>
-            </div>
-          )
-        })}
+        <div name="map" id="map" className="map">
         </div>
       </div>
     );
