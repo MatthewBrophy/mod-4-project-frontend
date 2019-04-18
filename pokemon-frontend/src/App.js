@@ -6,7 +6,7 @@ import Login from "./Components/Login";
 import ChooseStarter from "./Components/ChooseStarter";
 import Home from "./Containers/Home";
 import Catch from "./Containers/Catch";
-import PokeMap from "./Components/map";
+import PokeMap from "./Components/Map";
 
 const AllPokemonURL = "http://localhost:3000/api/v1/pokemons";
 

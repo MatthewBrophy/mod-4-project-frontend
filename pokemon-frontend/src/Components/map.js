@@ -15,12 +15,12 @@ class PokeMap extends Component {
 
   getFiveRandomPokemon = () => {
     let pokemon = []
-    let containerSize = 230
+    let containerHeight = 180
     for (let i = 0; i < 5; i ++){
       let poke = this.props.pokedex[Math.floor(Math.random() * 151)]
       console.log(poke)
-      let randomX = Math.floor(Math.random() * containerSize)
-      let randomY = Math.floor(Math.random() * containerSize)
+      let randomX = Math.floor(Math.random() * containerHeight)
+      let randomY = Math.floor(Math.random() * containerHeight)
       console.log("x", randomX)
       console.log("y", randomY)
 
@@ -28,7 +28,8 @@ class PokeMap extends Component {
         position: 'relative',
         top: `${randomX}px`,
         left: `${randomY}px`,
-        height: '50px'
+        margin: '10px',
+        height: '80px'
       };
       poke.style = pokeStyle
       pokemon.push(poke)
